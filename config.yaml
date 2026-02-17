@@ -5,6 +5,8 @@ targets:
         path: /home/xcx/.gemini/antigravity/global_skills
     claude:
         path: /home/xcx/.claude/skills
+    cursor:
+        path: /home/xcx/.cursor/skills
     gemini:
         path: /home/xcx/.gemini/skills
     opencode:
@@ -12,3 +14,5 @@ targets:
 ignore:
     - '**/.DS_Store'
     - '**/.git/**'
+audit:
+    block_threshold: CRITICAL
