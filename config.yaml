@@ -1,0 +1,14 @@
+source: /home/xcx/.config/skillshare/skills
+mode: merge
+targets:
+    antigravity:
+        path: /home/xcx/.gemini/antigravity/global_skills
+    claude:
+        path: /home/xcx/.claude/skills
+    gemini:
+        path: /home/xcx/.gemini/skills
+    opencode:
+        path: /home/xcx/.config/opencode/skills
+ignore:
+    - '**/.DS_Store'
+    - '**/.git/**'
