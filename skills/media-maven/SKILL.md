@@ -3,26 +3,33 @@ name: media-maven
 description: Curate RSS/OPML feeds by parsing files, validating feed health, detecting stale/redundant sources, organizing into categories, and recommending quality niche sources. Use when managing RSS subscriptions, cleaning feed lists, or discovering new sources.
 ---
 
+<skill>
+<objective>
+Curate RSS/OPML feeds by parsing files, validating feed health, detecting stale/redundant sources, organizing into categories, and recommending quality niche sources.
+</objective>
+
+<quick_start>
+Provide an OPML file or RSS URL to audit, organize, or clean. Media Maven will validate health, deduplicate, and suggest quality niche sources.
+</quick_start>
+
 <essential_principles>
-## How Media Maven Works
-
-### 1. Feed Health Detection
-
+<how_media_maven_works>
+<feed_health_detection>
 Media maven fetches live feeds to check:
 - **HTTP status** (404, 410, timeout = dead feed)
 - **Last modified date** (>6 months = potentially stale)
 - **Recent entries** (no posts in 3+ months = inactive)
 - **Redirect chains** (updated feed URL)
+</feed_health_detection>
 
-### 2. Redundancy Detection
-
+<redundancy_detection>
 Identifies duplicate feeds by:
 - **Exact URL match** (same feed, different category)
 - **Canonical URL resolution** (example.com/feed vs example.com/rss)
 - **Content fingerprinting** (same posts, different URLs - scrapers/aggregators)
+</redundancy_detection>
 
-### 3. Category Organization
-
+<category_organization>
 Applies consistent categorization:
 - Technology (security, AI/ML, web dev, systems)
 - News (general, tech, science, politics)
@@ -30,10 +37,12 @@ Applies consistent categorization:
 - Culture (art, music, film, literature)
 - Science (research, academia, specific fields)
 - Personal (individual bloggers, creators)
+</category_organization>
 
-### 4. Source Discovery
-
+<source_discovery>
 Curated library of quality niche sources organized by category. Updated recommendations based on reputation, consistency, and signal-to-noise ratio.
+</source_discovery>
+</how_media_maven_works>
 </essential_principles>
 
 <intake>
@@ -96,3 +105,4 @@ Media maven is working when:
 - Curated source recommendations are relevant and high-quality
 - Output OPML is valid, well-structured, and importable
 </success_criteria>
+</skill>

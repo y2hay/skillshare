@@ -1,16 +1,22 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/runkids/skillshare/main/schemas/config.schema.json
 source: /home/xcx/.config/skillshare/skills
 mode: merge
 targets:
     antigravity:
         path: /home/xcx/.gemini/antigravity/global_skills
+        mode: copy
     claude:
         path: /home/xcx/.claude/skills
+        mode: copy
     cursor:
         path: /home/xcx/.cursor/skills
+        mode: copy
     gemini:
         path: /home/xcx/.gemini/skills
+        mode: copy
     opencode:
         path: /home/xcx/.config/opencode/skills
+        mode: copy
 ignore:
     - '**/.DS_Store'
     - '**/.git/**'
