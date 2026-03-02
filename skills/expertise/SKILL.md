@@ -55,3 +55,69 @@ Identify the protocol (BitTorrent for swarms, Usenet for retention, aria2 for di
 - **Infrastructure**: Consider Docker/LXC context (e.g., Dockge LXC managing stacks).
 </usage_notes>
 </skill>
+
+
+---
+# Additional Documentation from Legacy Version
+
+| `setup-bittorrent-client.md` | Install and configure qBittorrent/Deluge optimally | Setup |
+| `setup-usenet-stack.md` | Providers, indexers, SABnzbd/NZBGet configuration | Setup |
+| `setup-aria2.md` | Multi-protocol download manager configuration | Setup |
+| `integrate-arr-stack.md` | Connect Sonarr/Radarr/Lidarr to download clients | Setup |
+| `optimize-client-performance.md` | Tune for maximum throughput | Optimization |
+| `troubleshoot-slow-speeds.md` | Diagnose and fix performance issues | Troubleshooting |
+| `troubleshoot-stalled-torrents.md` | Fix stuck/stopped downloads | Troubleshooting |
+| `troubleshoot-usenet-failures.md` | Handle incomplete/failed Usenet downloads | Troubleshooting |
+| `manage-private-trackers.md` | Ratio management, tracker rules, freeleech | Advanced |
+| `migrate-between-clients.md` | Move torrents between clients without data loss | Advanced |
+| `setup-privacy-stack.md` | VPN/proxy configuration, IP binding, leak prevention | Security |
+| `automate-categories.md` | Category-based automation and organization | Automation |
+
+## Reference Index
+
+All references use pure XML structure for maximum parsability by planning tools.
+
+| Reference | Content |
+|-----------|---------|
+| **Protocol Knowledge** |
+| `bittorrent-protocol.md` | How BitTorrent works (DHT, PEX, trackers) |
+| `usenet-protocol.md` | How Usenet works (NNTP, retention, completion) |
+| `aria2-capabilities.md` | HTTP/FTP/BitTorrent/Metalink protocols |
+| **Client Comparison** |
+| `bittorrent-clients.md` | qBittorrent vs Deluge vs Transmission vs rTorrent |
+| `usenet-clients.md` | SABnzbd vs NZBGet feature comparison |
+| `download-managers.md` | aria2 vs wget vs curl vs yt-dlp |
+| **Configuration** |
+| `qbittorrent-optimization.md` | Performance tuning, categories, automation |
+| `deluge-optimization.md` | Plugin ecosystem, thin client mode, performance |
+| `sabnzbd-optimization.md` | Servers, categories, scripts, post-processing |
+| `nzbget-optimization.md` | Performance tuning, scripting, extensions |
+| `aria2-optimization.md` | Configuration file, RPC, advanced features |
+| **Integration** |
+| `arr-stack-integration.md` | Sonarr/Radarr/Lidarr/Prowlarr workflows |
+| `download-client-api.md` | API integration patterns |
+| `category-automation.md` | Category-based workflows and scripts |
+| `post-processing.md` | Extract, rename, move, notify patterns |
+| **Infrastructure** |
+| `network-optimization.md` | Port forwarding, connection limits, bandwidth |
+| `storage-optimization.md` | Disk I/O, filesystem choices, cache tuning |
+| `privacy-security.md` | VPN/proxy, IP binding, encryption, leak prevention |
+| `seedbox-setup.md` | Dedicated server optimization patterns |
+| **Troubleshooting** |
+| `troubleshooting-bittorrent.md` | Slow speeds, stalls, tracker errors |
+| `troubleshooting-usenet.md` | Failed downloads, PAR2 repair, server errors |
+| `troubleshooting-network.md` | ISP throttling, NAT issues, firewall |
+| `troubleshooting-arr-stack.md` | Import failures, matching issues |
+| **Ecosystem** |
+| `trackers-indexers.md` | Public vs private trackers, Usenet indexers |
+| `usenet-providers.md` | Backbone vs resellers, retention, completion |
+| `private-tracker-economy.md` | Ratio management, freeleech, bonus points |
+| `anti-patterns.md` | Common mistakes, what NOT to do |
+
+## Usage Notes
+
+**For direct invocation**: Follow workflow step-by-step
+
+**For planning tools**: Load relevant references before creating implementation plan
+
+**Platform context**: Workflows include considerations for Docker, LXC, bare metal, and your specific balthazar infrastructure (Dockge LXC managing Docker stacks)

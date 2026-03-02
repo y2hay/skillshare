@@ -214,3 +214,139 @@ Based on recommendations, fetch latest docs and create:
 **Integrated**: All tools work together for complete workflow optimization
 </why_this_approach_works>
 </skill>
+
+
+---
+# Additional Documentation from Legacy Version
+
+   name: /test
+   description: Run tests for current file or project
+   allowed-tools: [Bash]
+   ---
+   Run tests: !npm test
+   ```
+   
+   Fetch CLAUDE.md best practices → Create `.claude/CLAUDE.md`:
+   ```markdown
+   # Project Context
+   
+   ## Commands
+   - Dev: `npm run dev` (port 3000)
+   - Build: `npm run build`
+   - Test: `npm test`
+   - Lint: `npm run lint`
+   
+   ## Tech Stack
+   - Next.js 14
+   - TypeScript
+   - Vitest for testing
+   
+   ## Testing
+   Run tests before commits: `npm test`
+   ```
+
+5. **Share GitHub findings**
+   "I also found this community skill for TypeScript testing that you might find useful: [GitHub link]"
+
+## When to Use Each Tool
+
+### Use analyze.sh when:
+- User asks to "analyze my workflow"
+- Optimizing Claude Code setup
+- Finding unused auto-allows
+- Discovering community resources
+- Understanding usage patterns
+
+### Use analyze-claude-md.sh when:
+- Creating CLAUDE.md
+- Setting up new project
+- User asks "what should I document?"
+- Need project-specific recommendations
+
+### Fetch docs when:
+- Creating any configuration file
+- User asks "how do I create an agent/skill/command?"
+- Explaining configuration options
+- Need current best practices
+
+### Use GitHub discovery for:
+- Finding proven patterns
+- Learning from community
+- Getting configuration examples
+- Discovering new approaches
+
+## Critical Documentation URLs
+
+Always fetch latest docs before creating configurations:
+
+| Type | URL |
+|------|-----|
+| Agents | https://docs.claude.com/en/docs/claude-code/sub-agents |
+| Skills | https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview |
+| Slash Commands | https://docs.claude.com/en/docs/claude-code/slash-commands |
+| Settings | https://docs.claude.com/en/docs/claude-code/settings |
+| CLAUDE.md | https://www.anthropic.com/engineering/claude-code-best-practices |
+
+## Key Configuration Facts (from latest docs)
+
+**Agents** (.md files with YAML frontmatter):
+- Required: name, description
+- Optional: tools (comma-separated), model (sonnet/opus/haiku/inherit)
+- Location: `.claude/agents/` (project) or `~/.claude/agents/` (user)
+- NOT .yaml files!
+
+**Skills** (directory with SKILL.md):
+- Structure: `skill-name/SKILL.md`
+- Bundled resources: scripts/, references/, assets/
+- Progressive loading: metadata → instructions → resources
+- Location: `.claude/skills/`
+
+**Slash Commands** (.md files):
+- Required: name (with / prefix)
+- Arguments: $ARGUMENTS, $1, $2
+- Optional: allowed-tools, model, argument-hint
+- Location: `.claude/commands/`
+
+**CLAUDE.md** (project documentation):
+- Hierarchical: user-level → parent → project → nested
+- Include: commands, style guidelines, testing, issues
+- Keep concise and actionable
+- Location: `.claude/CLAUDE.md`
+
+## Output Formats
+
+### Usage Analysis JSON
+```json
+{
+  "tool_usage": [{"tool": "Bash", "count": 122}],
+  "auto_allowed_tools": [{"tool": "Read", "usage_count": 49}],
+  "model_usage": [{"model": "claude-sonnet-4-5-20250929", "count": 634}],
+  "github_discovery": {"searches": [...]}
+}
+```
+
+### Project Analysis JSON
+```json
+{
+  "detected_package_manager": {"type": "npm", "scripts": ["dev", "test"]},
+  "testing": {"framework": "vitest"},
+  "framework": {"type": "nextjs"},
+  "claude_md_suggestions": ["Document npm scripts", "Document testing"]
+}
+```
+
+## Requirements
+
+- `jq` (install: `brew install jq` or `apt install jq`)
+- Claude Code projects at `~/.claude/projects`
+- Optional: `gh` CLI for direct GitHub search
+
+## Why This Approach Works
+
+**Comprehensive**: Combines usage analysis + community discovery + project detection
+**Current**: Fetches latest docs on-demand, never stale
+**Actionable**: Provides specific, implementable recommendations
+**Automated**: GitHub discovery runs automatically, no flags needed
+**Integrated**: All tools work together for complete workflow optimization
+
+When helping users optimize Claude Code, always run both analyses, interpret results together, fetch latest docs, and create configurations with current best practices.

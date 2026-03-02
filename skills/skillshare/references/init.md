@@ -10,20 +10,20 @@ Initialize skillshare configuration (global or project).
 
 | Flag | Description |
 |------|-------------|
-| `-c, --copy-from <name\|path>` | Import skills from target/path |
+| `--copy-from <name\|path>` | Import skills from target/path |
 | `--no-copy` | Start with empty source |
-| `-t, --targets "claude,cursor"` | Specific targets |
+| `--targets "claude,cursor"` | Specific targets |
 | `--all-targets` | All detected targets |
 | `--no-targets` | Skip target setup |
 | `--git` | Initialize git repo |
 | `--no-git` | Skip git init |
-| `-d, --discover` | Discover new AI tools (interactive) |
+| `--discover` | Discover new AI tools (interactive) |
 | `--discover --select "a,b"` | Non-interactive discovery |
-| `-s, --source <path>` | Custom source path |
-| `--remote <url>` | Set git remote (implies --git) |
+| `--source <path>` | Custom source path |
+| `--remote <url>` | Set git remote |
 | `--skill` | Install built-in skillshare skill (opt-in) |
 | `--no-skill` | Skip built-in skill installation |
-| `-n, --dry-run` | Preview changes |
+| `--dry-run` | Preview changes |
 
 ### AI Usage (Non-Interactive)
 
@@ -58,10 +58,10 @@ Creates `.skillshare/` in current directory with `config.yaml`, `.gitignore`, an
 | Flag | Description |
 |------|-------------|
 | `-p, --project` | Enable project mode |
-| `-t, --targets "claude,cursor"` | Specific targets (non-interactive) |
-| `-d, --discover` | Discover new AI tools |
+| `--targets "claude,cursor"` | Specific targets (non-interactive) |
+| `--discover` | Discover new AI tools |
 | `--discover --select "a,b"` | Non-interactive discovery |
-| `-n, --dry-run` | Preview changes |
+| `--dry-run, -n` | Preview changes |
 
 **Note:** `--copy-from`, `--git`, `--source` are not available in project mode.
 

@@ -73,3 +73,8 @@ chezmoi managed
 </assets_index>
 </resources>
 </skill>
+
+
+---
+# Additional Documentation from Legacy Version
+

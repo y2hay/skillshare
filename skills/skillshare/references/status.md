@@ -17,36 +17,29 @@ Project mode output includes: source path, targets with sync mode, remote skills
 
 ## diff
 
-Show differences between source and targets. Interactive TUI on TTY, plain text otherwise.
+Show differences between source and targets.
 
 ```bash
-skillshare diff                # Interactive TUI (default on TTY)
+skillshare diff                # All targets (auto-detects mode)
 skillshare diff claude         # Specific target
-skillshare diff --stat         # File-level changes (plain text)
-skillshare diff --patch        # Full unified diff (plain text)
-skillshare diff --no-tui       # Plain text, skip TUI
 skillshare diff -p             # Project mode
 skillshare diff -g             # Force global
 ```
 
-TUI features: left panel target list with status icons (`✓`/`!`/`✗`), right panel detail with categorized diffs. Enter expands file-level diff. `--stat` and `--patch` imply `--no-tui`.
+Project mode shows filter info and skill-level target restrictions.
 
 ## list
 
-List installed skills. Interactive TUI on TTY, plain text otherwise.
+List installed skills, grouped by directory.
 
 ```bash
-skillshare list                # Interactive TUI (default on TTY)
-skillshare list react          # Filter by name/path/source
-skillshare list --type local   # Filter by type: tracked, local, github
-skillshare list --sort newest  # Sort: name (default), newest, oldest
-skillshare list --verbose      # Detailed plain text view
-skillshare list --json         # JSON output (recommended for AI usage)
-skillshare list --no-tui       # Plain text, skip TUI
+skillshare list                # Auto-detects mode (grouped display)
+skillshare list --verbose      # With source URL, install date, tracked info
+skillshare list -v             # Short form of --verbose
 skillshare list -g             # Force global
 ```
 
-TUI features: fuzzy filter (type to search), detail panel (description, path, files, synced targets). Use `--json` for programmatic inspection: `skillshare list --json | jq '.[] | {name, source, type}'`.
+Skills organized in subdirectories are displayed in groups. Tracked repos shown in a dedicated section with skill counts. Project mode shows local vs remote skills.
 
 ## search
 
