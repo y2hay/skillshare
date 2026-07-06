@@ -3,17 +3,9 @@ source: /home/xcx/.config/skillshare/skills
 git_root: root
 mode: merge
 targets:
-  antigravity:
-    skills:
-      path: /home/xcx/.gemini/antigravity/global_skills
-      mode: copy
   claude:
     skills:
       path: /home/xcx/.claude/skills
-      mode: copy
-  codex:
-    skills:
-      path: /home/xcx/.codex/skills
       mode: copy
   gemini:
     skills:
@@ -37,35 +29,35 @@ targets:
 extras:
   - name: claude-agents
     targets:
-      - path: ~/.claude/agents
+      - path: /home/xcx/.claude/agents
         mode: copy
   - name: claude-rules
     targets:
-      - path: ~/.claude/rules
+      - path: /home/xcx/.claude/rules
         mode: copy
   - name: opencode-agents
     targets:
-      - path: ~/.config/opencode/agent
+      - path: /home/xcx/.config/opencode/agent
         mode: copy
   - name: opencode-rules
     targets:
-      - path: ~/.config/opencode/rules
+      - path: /home/xcx/.config/opencode/rules
         mode: copy
   - name: pi-agents
     targets:
-      - path: ~/.pi/agent/agents
+      - path: /home/xcx/.pi/agent/agents
         mode: copy
   - name: pi-prompts
     targets:
-      - path: ~/.pi/prompts
+      - path: /home/xcx/.pi/prompts
         mode: copy
   - name: claude-commands
     targets:
-      - path: ~/.claude/commands
+      - path: /home/xcx/.claude/commands
         mode: copy
   - name: opencode-commands
     targets:
-      - path: ~/.config/opencode/command
+      - path: /home/xcx/.config/opencode/command
         mode: copy
 ignore:
   - '**/.DS_Store'
