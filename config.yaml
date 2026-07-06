@@ -51,6 +51,10 @@ extras:
     targets:
       - path: ~/.config/opencode/rules
         mode: copy
+  - name: pi-agents
+    targets:
+      - path: ~/.pi/agent/agents
+        mode: copy
 ignore:
   - '**/.DS_Store'
   - '**/.git/**'
