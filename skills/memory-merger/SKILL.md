@@ -1,10 +1,13 @@
 ---
+
 name: memory-merger
-description: 'Merges mature lessons from a domain memory file into its instruction file. Syntax: `/memory-merger >domain [scope]` where scope is `global` (default), `user`, `workspace`, or `ws`.'
+description: |
+  Use when merging mature lessons from domain memory into instruction files; triggers include "merge memory", "memory merger", "promote lessons", "domain memory", and "update instructions from memory".
 version: 1
 metadata:
   tags: [memory, merge, instructions, knowledge]
 triggers: ["/memory-merger", "memory merge", "consolidate memories", "merge instructions"]
+
 ---
 
 # Memory Merger

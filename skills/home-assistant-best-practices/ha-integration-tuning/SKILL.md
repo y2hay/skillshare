@@ -1,12 +1,12 @@
 ---
+
 name: ha-integration-tuning
-description: >
-  Direct .storage editing for HA integration config changes, API-based reload
-  without restart, config modularization with !include, and integration-specific
-  optimizations (Govee MQTT, Hue local push).
+description: |
+  Use when tuning Home Assistant integrations or editing HA integration config; triggers include "tune HA integration", "edit Home Assistant .storage", "reload HA integration", and "modularize HA config". Covers direct .storage editing, API reloads, and config modularization.
 metadata:
   version: 1
 triggers: ["Govee tuning", "Hue polling", "HA integration", ".storage edit", "card-mod"]
+
 ---
 
 # HA Integration Tuning

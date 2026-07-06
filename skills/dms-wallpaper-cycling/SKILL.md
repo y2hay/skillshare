@@ -1,9 +1,12 @@
 ---
+
 name: dms-wallpaper-cycling
-description: Diagnose and fix Dank Material Shell wallpaper stuck while matugen colors cycle
+description: |
+  Use when diagnosing Dank Material Shell wallpaper cycling or matugen color issues; triggers include "DMS wallpaper stuck", "matugen colors cycle", "Dank Material Shell wallpaper", "wallpaper not changing", and "fix wallpaper cycling".
 category: devops
 version: 1
 triggers: ["wallpaper stuck", "colors cycle", "DMS wallpaper", "matugen"]
+
 ---
 
 <skill>

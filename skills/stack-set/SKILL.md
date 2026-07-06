@@ -1,9 +1,12 @@
 ---
+
 name: stack-set
-description: Auto-detect project tech stack matching stack-related inquiries from users. Activates when user asks to analyze, detect, or identify tech stacks, frameworks, package managers, or project structure. Generates stack-specific references for domain skills.
+description: |
+  Use when auto-detecting or analyzing a project technology stack; triggers include "detect tech stack", "analyze project stack", "what framework is this", "identify dependencies", and "stack report".
 version: 1
 triggers: ["detect stack", "tech stack", "analyze project", "stack references"]
 disable-model-invocation: true
+
 ---
 
 # /stack-set: Stack Configuration Workflow

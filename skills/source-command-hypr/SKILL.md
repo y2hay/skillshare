@@ -1,8 +1,11 @@
 ---
+
 name: "source-command-hypr"
-description: "Hyprland compositor helper commands for window management, monitor configuration, keybinds, and troubleshooting."
+description: |
+  Use when managing Hyprland compositor commands; triggers include "Hyprland command", "hyprctl", "move window", "monitor config", and "Hyprland keybinds".
 version: 1
 triggers: ["hyprland", "hyprctl", "compositor", "window manager"]
+
 ---
 <skill>
 <objective>

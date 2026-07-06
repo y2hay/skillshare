@@ -1,13 +1,22 @@
 ---
-name: expertise
-description: Build and optimize P2P file sharing infrastructure from scratch through production. Covers BitTorrent (qBittorrent, Deluge), Usenet (SABnzbd, NZBGet), aria2, media automation (*arr stack), seedbox optimization, and performance troubleshooting.
+
+name: p2p expertise
+description: |
+  Use when building or optimizing P2P file sharing infrastructure; triggers include "set up qBittorrent", "Usenet stack", "SABnzbd", "arr stack", and "seedbox optimization". Covers BitTorrent, Usenet, aria2, media automation, and performance troubleshooting.
 version: 1
 metadata:
   migrated_from: build-p2p-infrastructure
   completeness: skeleton
-triggers: ["P2P", "BitTorrent", "Usenet", "seedbox", "media automation", "arr stack"]
----
+triggers:
+  - P2P
+  - BitTorrent
+  - Usenet
+  - seedbox
+  - media automation
+  - arr stack
+when_to_use: crack,firgirl,torrent
 
+---
 <skill>
 <objective>
 Provide comprehensive domain expertise for building, optimizing, and troubleshooting P2P file sharing infrastructure, including BitTorrent, Usenet, aria2, and the *arr stack.

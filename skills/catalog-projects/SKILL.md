@@ -1,6 +1,9 @@
 ---
+
 name: catalog-projects
-description: Analyzes Claude Code project session files (.jsonl) and creates descriptive symbolic links in ~/documents/projects/ following the naming convention from CLAUDE.md. Use this skill when the user wants to organize, catalog, or create human-readable references to their Claude Code project history. This skill reads conversation content to generate meaningful names and maintains project organization.
+description: |
+  Use when analyzing Claude Code project session files or organizing project session links; triggers include "catalog projects", "Claude session files", "project session links", "analyze jsonl sessions", and "create project symlinks". Creates descriptive symbolic links for project sessions.
+
 ---
 
 # Catalog Projects Skill

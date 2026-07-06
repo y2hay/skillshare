@@ -1,8 +1,11 @@
 ---
+
 name: create-dns-records
-description: Automatically create Cloudflare DNS records for new Traefik Host() labels found in Docker Compose files
+description: |
+  Use when creating Cloudflare DNS records from Traefik Host() labels or Docker Compose files; triggers include "create Cloudflare DNS records", "Traefik Host labels", "sync DNS from compose", and "add DNS for service".
 version: 1
 triggers: ["Traefik Host()", "DNS records", "Cloudflare DNS", "create DNS"]
+
 ---
 
 <skill>

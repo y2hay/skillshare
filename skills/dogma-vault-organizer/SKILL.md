@@ -1,8 +1,11 @@
 ---
+
 name: dogma-vault-organizer
-description: Expert knowledge base organizer for maintaining ~/dogma vault structure, deduplication, and PARA compliance. Makes autonomous decisions on organization while escalating structural changes to user committee.
+description: |
+  Use when organizing the ~/dogma vault or knowledge base; triggers include "organize dogma vault", "deduplicate notes", "PARA cleanup", "clean my knowledge base", and "sort vault files". Maintains vault structure, deduplication, and PARA compliance.
 version: 1
 triggers: ["organize vault", "deduplicate dogma", "process inbox", "PARA cleanup"]
+
 ---
 
 <skill>

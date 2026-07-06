@@ -1,13 +1,12 @@
 ---
+
 name: home-assistant-integrations-expert
-description: >
-  Expert guidance for developing Home Assistant integrations — config flows,
-  entities, testing, quality scale, and architectural patterns. Triggered when
-  creating or reviewing integrations, config flows, or aiming for Silver/Gold/Platinum
-  quality scale ratings.
+description: |
+  Use when developing Home Assistant integrations; triggers include "develop Home Assistant integration", "HA config flow", "HA entity platform", and "Home Assistant quality scale". Covers config flows, entities, testing, quality scale, and architecture.
 version: 1
 triggers: ["HA integration", "create integration", "config flow", "Quality Scale", "Silver", "Gold", "Platinum"]
 allowed-tools: [bash, python, editor, terminal]
+
 ---
 
 <skill>

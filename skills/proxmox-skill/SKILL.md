@@ -1,9 +1,12 @@
 ---
+
 name: proxmox-skill
-description: Operate a Proxmox VE environment by reading connection details from the local `.env` file and using the bundled helper script to inspect nodes, QEMU VMs, and LXC containers, start existing guests, allocate a new VM or container ID, create a new VM shell, clone from a template, or create a new LXC container from a local Proxmox template.
+description: |
+  Use when operating this specific Proxmox environment with the bundled helper script; triggers include "inspect Proxmox host", "start Proxmox guest", "create LXC", "clone Proxmox template", and "allocate VM ID".
 version: 1
 triggers: ["proxmox", "create VM", "list nodes", "clone template", "LXC"]
 allowed-tools: [terminal, python]
+
 ---
 
 # Proxmox Guest Control

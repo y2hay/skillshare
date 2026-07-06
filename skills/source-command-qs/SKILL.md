@@ -1,8 +1,11 @@
 ---
+
 name: "source-command-qs"
-description: "Rebuild quickshell after Qt updates to fix version mismatches and launch failures."
+description: |
+  Use when rebuilding quickshell after Qt updates or fixing quickshell launch/version mismatches; triggers include "rebuild quickshell", "quickshell Qt mismatch", "fix quickshell launch", and "Qt version mismatch".
 version: 1
 triggers: ["quickshell", "rebuild qs", "qt mismatch", "rebuild quickshell"]
+
 ---
 
 # source-command-qs

@@ -1,10 +1,11 @@
 ---
+
 name: ha-lighting-automation
-description: >-
-  Template-based dynamic light groups, Lutron Caseta Pico remote automations,
-  and all-lights control patterns for Home Assistant.
+description: |
+  Use when building Home Assistant lighting automations; triggers include "Home Assistant lights", "Pico remote automation", "dynamic light group", and "all lights automation". Covers template-based dynamic light groups and Lutron Caseta Pico remotes.
 metadata:
   version: 1
+
 ---
 
 # HA Lighting Automation

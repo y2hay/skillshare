@@ -1,12 +1,12 @@
 ---
+
 name: home-assistant-best-practices
-description: >
-  HA automations, helpers, naming, and config auditing. Covers SSH/docker
-  inspection, .storage JSON analysis, area assignment, naming conventions,
-  template lighting, Lutron Pico remotes, and ongoing monitoring.
+description: |
+  Use when working on Home Assistant automations, helpers, naming, config auditing, SSH/docker inspection, .storage JSON analysis, area assignment, or entity registry work; triggers include "Home Assistant automation", "HA helper", "audit HA config", "Home Assistant naming", and "entity registry".
 metadata:
   version: 1
 triggers: ["HA best practices", "config audit", "entity naming", "area assignment", "HA automation patterns", "Lutron Pico", "template lights", "HA monitoring"]
+
 ---
 
 # Home Assistant Best Practices

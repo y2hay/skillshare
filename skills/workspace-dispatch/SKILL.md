@@ -1,9 +1,11 @@
 ---
+
 name: workspace-dispatch
 description: |
-  Single-agent mission orchestrator. Decomposes a mission into tasks, spawns one worker per task, verifies exit criteria, and chains tasks with retry. No critic pattern — each worker self-verifies. Simple, fast. **Claude Code only** (uses Claude-specific `sessions_spawn()` API).
+  Use when decomposing a mission into worker tasks and chaining execution; triggers include "dispatch workspace task", "spawn worker per task", "decompose mission", "chain tasks", and "single-agent mission".
 version: 1
 triggers: ["dispatch", "orchestrate", "parallel tasks", "mission", "decompose"]
+
 ---
 
 # Workspace Dispatch (Single Agent)

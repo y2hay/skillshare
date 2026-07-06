@@ -1,7 +1,10 @@
 ---
+
 name: schedule
-description: Register a scheduled agent job from a natural-language schedule request — parse the interval, resolve agent-id + prompt + workspace, call oma schedule:add, then confirm with oma schedule:list
+description: |
+  Use when registering scheduled agent jobs from natural-language schedule requests; triggers include "schedule a task", "run this later", "repeat every", "scheduled agent job", and "cron agent".
 disable-model-invocation: true
+
 ---
 
 # MANDATORY RULES: VIOLATION IS FORBIDDEN

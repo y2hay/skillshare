@@ -1,9 +1,12 @@
 ---
+
 name: recap
-description: Daily or period recap via `oma-recap`. Resolves a date or window from natural language, invokes `oma recap --json`, delegates theme analysis and Markdown formatting to the skill, and reports a TL;DR plus saved path.
+description: |
+  Use when generating daily or period recaps from AI conversation history; triggers include "daily recap", "conversation recap", "summarize AI sessions", "work summary", and "recap yesterday".
 disable-model-invocation: true
 version: 1
 triggers: ["/recap", "recap", "daily recap", "what did I do", "weekly recap"]
+
 ---
 
 # MANDATORY RULES: VIOLATION IS FORBIDDEN

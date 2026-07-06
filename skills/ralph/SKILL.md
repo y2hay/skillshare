@@ -1,9 +1,12 @@
 ---
+
 name: ralph
-description: Ralph - persistent self-referential execution loop wrapping ultrawork with a spawned independent judge
+description: |
+  Use when the user asks to run Ralph or a persistent autonomous loop; triggers include "run ralph", "persistent loop", "keep working until done", "independent judge", and "self-referential loop".
 disable-model-invocation: true
 version: 1
 triggers: ["/ralph", "ultrawork", "persistent loop", "self-referential"]
+
 ---
 
 # MANDATORY RULES: VIOLATION IS FORBIDDEN

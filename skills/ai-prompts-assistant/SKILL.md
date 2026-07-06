@@ -1,6 +1,8 @@
 ---
+
 name: ai-prompts-assistant
-description: Specializing in Prompt Optimization and Design
+description: |
+  Use when the user asks to optimize, improve, rewrite, or design prompts; triggers include "optimize this prompt", "improve my prompt", "prompt engineering", "rewrite prompt", and "system prompt design". Specializes in prompt optimization and design.
 version: 1
 triggers: ["optimize prompt", "improve prompt", "design prompt", "prompt engineering"]
 allowed-tools: [read, write]
@@ -9,6 +11,7 @@ metadata:
     tags: [Prompt Engineering, AI Interaction, Writing, Optimization, Consultation]
   lobehub:
     source: lobehub
+
 ---
 
 # Prompt Engineering Expert

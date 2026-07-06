@@ -1,8 +1,11 @@
 ---
+
 name: context7-mcp
-description: This skill should be used when the user asks about libraries, frameworks, API references, or needs code examples. Activates for setup questions, code generation involving libraries, or mentions of specific frameworks like React, Vue, Next.js, Prisma, Supabase, etc.
+description: |
+  Use when the user asks about libraries, frameworks, API references, or code examples through Context7 MCP; triggers include "use Context7 MCP", "library documentation", "framework examples", "API reference", and framework-specific docs such as React docs.
 version: 1
 triggers: ["library docs", "API reference", "resolve library", "query docs"]
+
 ---
 
 ## When to Use

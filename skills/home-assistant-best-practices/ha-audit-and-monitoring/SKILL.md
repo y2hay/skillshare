@@ -1,11 +1,11 @@
 ---
+
 name: ha-audit-and-monitoring
-description: >
-  SSH-based HA config audit, entity registry inspection, integration health
-  checks, and ongoing monitoring via Hermes agent profile + cron. Covers HAOS,
-  Docker, and core installations.
+description: |
+  Use when auditing or monitoring Home Assistant over SSH; triggers include "audit Home Assistant", "HA config health", "inspect HA registry", "monitor Home Assistant", and "HA SSH audit". Covers config audit, entity registry inspection, integration health checks, and ongoing monitoring.
 metadata:
   version: 1
+
 ---
 
 # HA Audit & Monitoring

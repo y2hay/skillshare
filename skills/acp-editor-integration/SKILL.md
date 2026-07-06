@@ -1,6 +1,8 @@
 ---
+
 name: acp-editor-integration
-description: Set up Hermes Agent as an ACP server for VS Code, Zed, and JetBrains. Covers dependency install, extension configuration, verification, and common pitfalls.
+description: |
+  Use when setting up Hermes Agent as an ACP server for VS Code, Zed, or JetBrains; triggers include "set up ACP", "Hermes ACP server", "VS Code ACP", "Zed ACP", and "JetBrains ACP". Covers dependency install, extension configuration, verification, and common pitfalls.
 tools:
   - terminal
   - uv
@@ -37,6 +39,7 @@ examples:
   - "Set up ACP so I can use Hermes in VS Code"
   - "Install ACP dependencies for editor integration"
   - "Connect Hermes to the ACP Client VS Code extension"
+
 ---
 
 # ACP Editor Integration

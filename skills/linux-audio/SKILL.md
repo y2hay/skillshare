@@ -1,12 +1,15 @@
 ---
+
 name: linux-audio
-description: Diagnose and fix Linux audio output problems on PipeWire/WirePlumber — no sound, wrong device, muted hardware amps, Pro Audio profile quirks.
+description: |
+  Use when diagnosing or fixing Linux audio problems on PipeWire or WirePlumber; triggers include "no sound on Linux", "PipeWire audio", "WirePlumber issue", "wrong audio device", and "Pro Audio profile".
 tools:
   - terminal
   - read_file
 preconditions:
   - PipeWire or PulseAudio running (pactl/wpctl available)
   - alsa-utils installed (amixer, aplay, speaker-test)
+
 ---
 
 ## Diagnostic Sequence
