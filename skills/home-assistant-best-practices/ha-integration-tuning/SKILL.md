@@ -6,6 +6,7 @@ description: >
   optimizations (Govee MQTT, Hue local push).
 metadata:
   version: 1
+triggers: ["Govee tuning", "Hue polling", "HA integration", ".storage edit", "card-mod"]
 ---
 
 # HA Integration Tuning
@@ -190,6 +191,7 @@ The warning `CARD-MOD: hui-card already patched by 4.2.1!` means card-mod is loa
 
 **Fix:** Ensure card-mod appears exactly once in `extra_module_url`. Check HACS frontend resources in `.storage/lovelace_resources` — if card-mod is registered there, remove it from `extra_module_url` (or vice versa).
 
-## References
+## Notes
 
-See `references/govee-hue-tuning.md` for session-specific Govee/Hue config entry dumps and error patterns.
+- **Govee session dumps**: The Govee config entry `options` dict often ships with `enable_mqtt_control` missing. It must be manually added before it appears in the UI. If MQTT status shows `disconnected`, verify the AWS IoT credentials in the integration's `data` field are valid (AWS IoT uses certificate-based auth, not the Govee API key).
+- **Hue `pref_disable_polling`**: This field lives at the top level of the config entry dict, NOT inside `options`. After setting it, reload the Hue integration via the API. The bridge will switch from cloud polling to local SSE push on next refresh.

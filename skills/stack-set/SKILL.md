@@ -1,6 +1,8 @@
 ---
 name: stack-set
-description: Auto-detect project tech stack and generate stack-specific references for domain skills
+description: Auto-detect project tech stack matching stack-related inquiries from users. Activates when user asks to analyze, detect, or identify tech stacks, frameworks, package managers, or project structure. Generates stack-specific references for domain skills.
+version: 1
+triggers: ["detect stack", "tech stack", "analyze project", "stack references"]
 disable-model-invocation: true
 ---
 
@@ -259,3 +261,16 @@ Confirm generated files meet requirements.
 - Only create or modify files in the resolved skill's `stack/` directory
 - If `stack/` already exists for the resolved domain skill, ask before overwriting
 - `target_skill` is always the resolved domain skill (`oma-backend` or `oma-mobile`); never hardcode a single skill name in generation logic
+
+---
+
+## Success Criteria
+
+- Project manifests are correctly detected and parsed for all present languages/frameworks
+- Detected stack is presented to the user for confirmation before any files are generated
+- Multi-domain projects correctly surface both backend and mobile options
+- Generated `stack/` directory contains all mandatory files (stack.yaml, tech-stack.md, snippets.md, api-template.*)
+- All generated files use project-specific values (not variant defaults or placeholders)
+- Generated `stack.yaml` includes a `verify:` block with runnable syntax and test commands
+- Existing `stack/` directories are not overwritten without user confirmation
+- Target skill SKILL.md files and shared `resources/` are never modified

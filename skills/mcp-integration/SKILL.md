@@ -4,24 +4,25 @@ description: This skill should be used when the user asks to "add MCP server", "
 version: 0.1.0
 ---
 
-<skill>
-<objective>
+## Objective
+
 Provide comprehensive guidance for integrating Model Context Protocol (MCP) servers into Claude Code plugins to expose external service capabilities as tools.
-</objective>
 
-<quick_start>
+## Quick Start
+
 Configure MCP servers in `.mcp.json` or `plugin.json`. Use `${CLAUDE_PLUGIN_ROOT}` for portable paths. Reference tools as `mcp__plugin_NAME_SERVER__TOOL`.
-</quick_start>
 
-<success_criteria>
+## Success Criteria
+
 - MCP server appears in `/mcp` output with correct tools
 - Authentication (OAuth or tokens) works correctly
 - Tools are successfully invoked from commands or agents
 - Portable paths using ${CLAUDE_PLUGIN_ROOT} are used
-</success_criteria>
 
-<how_it_works>
-<configuration_methods>
+## How It Works
+
+### Configuration Methods
+
 Plugins can bundle MCP servers in two ways:
 
 **Method 1: Dedicated .mcp.json (Recommended)**
@@ -29,22 +30,21 @@ Create `.mcp.json` at plugin root with server definitions.
 
 **Method 2: Inline in plugin.json**
 Add `mcpServers` field to `plugin.json`.
-</configuration_methods>
 
-<server_types_summary>
+### Server Types
+
 - **stdio**: Local processes (npx, python, custom scripts). Communicates via stdin/stdout.
 - **SSE**: Hosted services (Asana, GitHub). Supports automatic OAuth.
 - **HTTP**: REST APIs with token/header authentication.
 - **WebSocket**: Real-time bidirectional streaming.
-</server_types_summary>
 
-<environment_variables>
+### Environment Variables
+
 - `${CLAUDE_PLUGIN_ROOT}`: Plugin directory (always use for portability).
 - `${ENV_VAR}`: Expansion of user environment variables.
-</environment_variables>
-</how_it_works>
 
-<tool_naming>
+## Tool Naming
+
 **Format:** `mcp__plugin_PLUGIN-NAME_SERVER-NAME__TOOL-NAME`
 
 Pre-allow specific tools in command frontmatter:
@@ -53,10 +53,11 @@ Pre-allow specific tools in command frontmatter:
 allowed-tools: ["mcp__plugin_asana_asana__asana_create_task"]
 ---
 ```
-</tool_naming>
 
-<process>
-<implementation_workflow>
+## Process
+
+### Implementation Workflow
+
 1. Choose MCP server type (stdio, SSE, HTTP, ws)
 2. Create `.mcp.json` at plugin root with configuration
 3. Use `${CLAUDE_PLUGIN_ROOT}` for all file references
@@ -64,36 +65,22 @@ allowed-tools: ["mcp__plugin_asana_asana__asana_create_task"]
 5. Test locally with `/mcp` command
 6. Pre-allow MCP tools in relevant commands
 7. Handle authentication and error cases
-</implementation_workflow>
-</process>
 
-<resources>
-<reference_index>
+## Resources
+
+### Reference Index
+
 - **references/server-types.md**: Deep dive on stdio, SSE, HTTP, and WS
 - **references/authentication.md**: OAuth, tokens, and custom headers
 - **references/tool-usage.md**: Using MCP tools in commands and agents
 - **references/security-and-errors.md**: Best practices and error patterns
 - **references/testing-and-debugging.md**: Local testing and `/mcp` usage
-</reference_index>
 
-<examples_index>
+### Examples Index
+
 - **examples/stdio-server.json**: Local process example
 - **examples/sse-server.json**: Cloud service with OAuth
 - **examples/http-server.json**: REST API with tokens
-</examples_index>
-</resources>
-</skill>
-
-
----
-# Additional Documentation from Legacy Version
-
-allowed-tools: [
-  "mcp__plugin_asana_asana__asana_create_task",
-  "mcp__plugin_asana_asana__asana_search_tasks"
-]
----
-```
 
 **Wildcard (use sparingly):**
 ```markdown

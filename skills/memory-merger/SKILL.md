@@ -1,6 +1,10 @@
 ---
 name: memory-merger
 description: 'Merges mature lessons from a domain memory file into its instruction file. Syntax: `/memory-merger >domain [scope]` where scope is `global` (default), `user`, `workspace`, or `ws`.'
+version: 1
+metadata:
+  tags: [memory, merge, instructions, knowledge]
+triggers: ["/memory-merger", "memory merge", "consolidate memories", "merge instructions"]
 ---
 
 # Memory Merger
@@ -19,6 +23,27 @@ Memory instructions can be stored in two scopes:
 Default scope is **global**.
 
 Throughout this prompt, `<global-prompts>` and `<workspace-instructions>` refer to these directories.
+
+## Fallback Paths (Non-VS Code Environments)
+
+These paths assume VS Code's custom prompt directories. In other environments:
+
+- **Cursor**: `~/.cursor/user/prompts/` (global), `.github/instructions/` (workspace, project root)
+- **Windsurf / Codeium**: `~/.windsurf/user/prompts/` (global), `.github/instructions/` (workspace)
+- **CLI-only / non-IDE**: Use workspace-relative `.github/instructions/` paths. No standard global equivalent exists — consider using `~/.config/skillshare/instructions/` as a convention.
+- **Unknown platform**: Ask the user where their project-level instructions live and fall back to `.github/instructions/` in the project root.
+
+When platform is ambiguous, prompt the user to confirm paths before reading or writing.
+
+## Safety: Confirm Before Overwriting
+
+**Before writing to any instruction file**, present the proposed changes to the user and await explicit confirmation:
+
+1. Show a diff or summary of what will be merged
+2. Ask: "Approve these changes? (yes / no / edit)"
+3. Write the file only after receiving affirmative confirmation
+
+This prevents accidental loss of content the user may have added directly to the instruction file outside the merge process.
 
 ## Syntax
 

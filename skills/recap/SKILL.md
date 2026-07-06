@@ -2,6 +2,8 @@
 name: recap
 description: Daily or period recap via `oma-recap`. Resolves a date or window from natural language, invokes `oma recap --json`, delegates theme analysis and Markdown formatting to the skill, and reports a TL;DR plus saved path.
 disable-model-invocation: true
+version: 1
+triggers: ["/recap", "recap", "daily recap", "what did I do", "weekly recap"]
 ---
 
 # MANDATORY RULES: VIOLATION IS FORBIDDEN
@@ -9,7 +11,7 @@ disable-model-invocation: true
 - **Response language follows `language` setting in `.agents/oma-config.yaml` if configured.**
 - **NEVER skip steps.** Execute from Step 1 in order.
 - **Never modify `.agents/`.** SSOT protection applies.
-- **Follow the host-LLM contract** in `.agents/skills/oma-recap/SKILL.md`: theme analysis, grouping rules, and Markdown output format are owned by the skill. This workflow only resolves intent, runs the CLI, and reports.
+- **Follow the host-LLM contract** — theme analysis, grouping rules, and Markdown output format are owned by the skill (see Step 4 for the inline fallback spec if `oma-recap` skill is unavailable). This workflow resolves intent, runs the CLI, and reports.
 - **Never auto-translate technical terms** in the saved recap (project names, tool names, CLI flags).
 
 ---
@@ -43,9 +45,13 @@ If the user supplies multiple conflicting signals (e.g., "지난주 어제"), pi
 
 1. Confirm `oma` is available: `command -v oma` (or `bun run oma --help` if running from source).
 2. If `oma` is missing:
-   - Fall back to the Claude-history-only `jq` path documented in `oma-recap` SKILL.md §2.
+   - Fall back to the Claude-history-only `jq` path documented in the inline fallback Step 4 §2.
    - Note the limited coverage in the Step 5 report.
 3. If neither source is available, exit with a message stating the requested range and the missing inputs. Do NOT fabricate a recap.
+4. **Ensure output directory exists**:
+   ```bash
+   mkdir -p .agents/results/recap
+   ```
 
 ---
 
@@ -85,15 +91,74 @@ The CLI emits a normalized history JSON. **Do not interpret the rows here** — 
 
 ---
 
-## Step 4: Synthesize & Save (Skill Contract)
+## Step 4: Synthesize & Save
 
-Hand the JSON output to `oma-recap` SKILL.md. The skill owns:
+If the `oma-recap` skill exists (`.agents/skills/oma-recap/SKILL.md`), delegate to it per its spec.
 
-- §3 **Theme Analysis and Grouping** — 15-minute threshold, cross-tool patterns, Miscellaneous bucket.
-- §4 **Output Format** — daily template (theme by time block) vs multi-day template (project-driven).
-- §5 **Save Results** — writes to `.agents/results/recap/{date}.md` or `{start}~{end}.md`.
+**Otherwise, use the inline fallback below.**
 
-Do not duplicate or override these rules in this workflow.
+### Step 4 (inline fallback) — Theme Analysis and Grouping
+
+Group the JSON history rows by **time-adjacent clusters** (≤15 minutes between entries = same session). Within each cluster, identify the dominant theme.
+
+**Grouping rules:**
+- Adjacent entries within 15 minutes → same theme group (title from first substantive entry)
+- Entries spaced >15 minutes apart → new theme group
+- Cross-tool entries within the same 15-minute window → merge into one group
+- Any group accounting for <10% of total entries → "Miscellaneous" bucket (unless it's the only group)
+- **Daily template** (single date): organize by time blocks (morning/afternoon/evening), list the theme group under each block
+- **Multi-day template** (period): organize by project/domain, not by day; list what was accomplished per project across the window
+
+### Step 4.2 — Output Format
+
+**Daily recap format:**
+```markdown
+# Recap: YYYY-MM-DD (DayName)
+
+## Morning (~HH:MM–HH:MM)
+- **{Theme}** — {key accomplishment} ({tool})
+- **{Theme}** — {key accomplishment} ({tool})
+
+## Afternoon (~HH:MM–HH:MM)
+...
+```
+
+**Multi-day recap format:**
+```markdown
+# Recap: YYYY-MM-DD ~ YYYY-MM-DD ({N} days)
+
+## {Project/Domain}
+- **{Theme}** — {key accomplishment} ({tool}, {date})
+...
+
+## Summary
+- Total sessions: {N}
+- Tools used: {list}
+- Key outcomes: {bullet list}
+```
+
+### Step 4.3 — Save Results
+
+Write to `.agents/results/recap/{date}.md` (daily) or `.agents/results/recap/{start}~{end}.md` (period).
+
+```bash
+cat > .agents/results/recap/{filename} << 'RECAP_EOF'
+{formatted recap content}
+RECAP_EOF
+```
+
+### Step 4.4 — jq Fallback (No `oma` CLI)
+
+If `oma` is not installed, read `~/.claude/history.jsonl` directly and synthesize a recap from Claude-only history:
+
+```bash
+cat ~/.claude/history.jsonl | jq -r '
+  select(.ts >= $start and .ts <= $end) |
+  "\(.ts) | \(.tool // "chat") | \(.summary // .input[0:80])"
+' | head -50
+```
+
+Note limited coverage: Claude history only, no other tools.
 
 ---
 
@@ -144,7 +209,8 @@ Append a single-line coverage note **only if** any of the following apply:
 
 ## References
 
-- Skill spec: `.agents/skills/oma-recap/SKILL.md`
+- Skill spec (if exists): `.agents/skills/oma-recap/SKILL.md`
+- Inline fallback: Step 4 above (theme analysis, grouping, output format)
 - Output directory: `.agents/results/recap/`
 - Language config: `.agents/oma-config.yaml`
 - Claude fallback history: `~/.claude/history.jsonl`

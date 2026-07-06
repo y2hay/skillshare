@@ -1,10 +1,21 @@
 ---
 name: edit-flow
-description: Create and edit pi-flows flows and agents from the main session. Use when the user wants to create a new flow, add or change an agent, or edit an existing flow/agent. Covers agent frontmatter, flow YAML, step types (agent, fork, agent-decision, code, code-decision, flow-ref), model references, the flow_agents/flow_write tools, code-handler generation, write locations, editing an existing flow vs creating one, and fixing validation errors.
+version: 1
+description: Edit **existing** pi-flows flows and agents from the main session. Use when the user wants to edit an existing flow, add or change an agent, or modify an existing flow/agent. Covers agent frontmatter, flow YAML, step types (agent, fork, agent-decision, code, code-decision, flow-ref), model references, the flow_agents/flow_write tools, code-handler generation, write locations, editing an existing flow vs creating one, and fixing validation errors.
 disable-model-invocation: true
 ---
 
 # Edit Flow
+
+## Differentiation
+
+**Use `edit-flow` when you are editing an *existing* flow or agent.** This skill targets modification of already-deployed pi-flows: updating agent prompts, restructuring flow DAGs, adding steps, fixing validation errors, or changing model references. It assumes a flow or agent already exists and you are iterating on it.
+
+**Use `manage-flows` when you are creating a *new* flow or agent from scratch.** That skill covers the full creation lifecycle: scoping requirements, designing the DAG, authoring purpose-built agents, and wiring everything together for the first time.
+
+The two skills share the same underlying tools (`flow_agents`, `flow_write`) but differ in starting point and workflow. If a flow/agent is named in the invocation, you are editing (use `edit-flow`). If no existing artifact is referenced, you are creating (use `manage-flows`).
+
+---
 
 You are creating and editing **pi-flows** flows and agents directly in this session. Tools that do the writing (each validates before writing and returns diagnostics on failure):
 

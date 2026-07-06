@@ -1,6 +1,8 @@
 ---
 name: dogma-vault-organizer
 description: Expert knowledge base organizer for maintaining ~/dogma vault structure, deduplication, and PARA compliance. Makes autonomous decisions on organization while escalating structural changes to user committee.
+version: 1
+triggers: ["organize vault", "deduplicate dogma", "process inbox", "PARA cleanup"]
 ---
 
 <skill>
@@ -65,9 +67,44 @@ git push
 ```
 </git_workflow>
 
-<resources>
-<reference_index>
-- Refer to legacy `SKILL.md` for deduplication strategies, detailed PARA rules, and committee proposal formats.
-</reference_index>
-</resources>
+<deduplication_rules>
+When scanning for duplicates:
+1. **Exact match**: Same filename + same content → keep newest, delete rest.
+2. **Content match**: Different names but identical body → merge into single canonical file, add redirect/alias.
+3. **Fuzzy match**: Similar content (80%+ overlap) → consolidate key insights into one file, link to source.
+4. **Cross-PARA duplicates**: Same concept found in multiple PARA folders → move to most appropriate single location, cross-link from others.
+5. **Draft consolidation**: Multiple drafts of same idea → merge into final version, archive drafts.
+</deduplication_rules>
+
+<weekly_organization_process>
+1. **Process Inbox** (`00_Inbox`)
+   ```bash
+   ls ~/dogma/00_Inbox/ | wc -l        # count inbox items
+   ```
+   - Read each file, classify into Projects/Areas/Resources/Archive
+   - Files staying in Inbox >7 days get priority review
+   - Target: <20 items remaining
+
+2. **Scan for Duplicates**
+   ```bash
+   fdupes -r ~/dogma/                   # find exact duplicates
+   ```
+   - Review and merge or delete duplicates per deduplication rules
+   - Commit after each batch: `git commit -m "Deduplicate: Merged $N files in $AREA"`
+
+3. **Review Projects** (`01_Projects`)
+   - Check each project folder: still active? → keep. Completed? → archive.
+   - Update project status in filenames or metadata
+
+4. **Fix Broken Links**
+   ```bash
+   rg -l '\[\[.*?\]\]' ~/dogma/        # find all wiki links, verify targets exist
+   ```
+   - Repair or remove broken `[[WikiLinks]]`
+
+5. **Git Commit**
+   ```bash
+   git -C ~/dogma add -A && git -C ~/dogma commit -m "Weekly org: processed inbox, dedup, archived projects"
+   ```
+</weekly_organization_process>
 </skill>

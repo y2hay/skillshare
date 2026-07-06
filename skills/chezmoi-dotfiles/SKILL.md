@@ -1,6 +1,8 @@
 ---
 name: chezmoi-dotfiles
 description: Secure dotfiles management with chezmoi. Use when helping users initialize chezmoi repositories, add/manage dotfiles, handle secrets with age encryption, create templates for multi-machine configs, troubleshoot chezmoi issues, or review dotfiles for security. Always checks for security implications before adding files.
+version: 1
+triggers: ["chezmoi", "dotfiles", "encrypt", "age encryption", "template"]
 ---
 
 <skill>
@@ -9,7 +11,7 @@ Provide expert guidance for managing dotfiles securely with chezmoi, focusing on
 </objective>
 
 <quick_start>
-Use `scripts/init_chezmoi_repo.sh` to start a new repo. Add files with `chezmoi add`. Use `--encrypt` for secrets and `--template` for dynamic content. Run `scripts/check_secrets.py` before committing.
+Use `scripts/executable_init_chezmoi_repo.sh` to start a new repo. Add files with `chezmoi add`. Use `--encrypt` for secrets and `--template` for dynamic content. Run `scripts/executable_check_secrets.py` before committing.
 </quick_start>
 
 <success_criteria>
@@ -28,7 +30,7 @@ Use `scripts/init_chezmoi_repo.sh` to start a new repo. Add files with `chezmoi 
    - NO -> Proceed to step 3.
 3. **Safe to add?**
    - YES -> Check `.chezmoiignore` patterns and use `chezmoi add`.
-   - Run `scripts/check_secrets.py` before every commit.
+   - Run `scripts/executable_check_secrets.py` before every commit.
 </security_first_workflow>
 
 <essential_commands>
@@ -48,7 +50,7 @@ chezmoi managed
 - ⚠️ **.env files**: Add to `.chezmoiignore` instead of tracking.
 - ⚠️ **SSH keys**: Always use age encryption: `chezmoi add --encrypt`.
 - ⚠️ **Mixed content**: Use templates with variables stored in local `chezmoi.yaml`.
-- ⚠️ **Pre-commit**: Always run `scripts/check_secrets.py`.
+- ⚠️ **Pre-commit**: Always run `scripts/executable_check_secrets.py`.
 </proactive_security_guidance>
 
 <resources>
@@ -61,14 +63,14 @@ chezmoi managed
 </reference_index>
 
 <scripts_index>
-- **scripts/check_secrets.py**: Scan for potential secrets before committing
-- **scripts/init_chezmoi_repo.sh**: Initialize with security defaults
-- **scripts/generate_chezmoiignore.py**: Generate comprehensive ignore patterns
+- **scripts/executable_check_secrets.py**: Scan for potential secrets before committing
+- **scripts/executable_init_chezmoi_repo.sh**: Initialize with security defaults
+- **scripts/executable_generate_chezmoiignore.py**: Generate comprehensive ignore patterns
 </scripts_index>
 
 <assets_index>
-- **assets/.chezmoiignore.template**: Starter ignore file
-- **assets/.chezmoidata.yaml.template**: Starter template data
+- **assets/dot_chezmoiignore.template**: Starter ignore file
+- **assets/dot_chezmoidata.yaml.template**: Starter template data
 - **assets/README.md.template**: Documentation template
 </assets_index>
 </resources>

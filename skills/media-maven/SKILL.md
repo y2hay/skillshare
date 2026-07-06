@@ -1,6 +1,8 @@
 ---
 name: media-maven
 description: Curate RSS/OPML feeds by parsing files, validating feed health, detecting stale/redundant sources, organizing into categories, and recommending quality niche sources. Use when managing RSS subscriptions, cleaning feed lists, or discovering new sources.
+version: 1
+triggers: ["curate feeds", "audit RSS", "clean OPML", "find sources", "organize feeds"]
 ---
 
 <skill>
@@ -72,10 +74,9 @@ What would you like to do?
 <reference_index>
 All domain knowledge in `references/`:
 
-**Formats**: opml-format.md, rss-atom-formats.md
+**Formats**: opml-format.md
 **Detection**: feed-health-detection.md, redundancy-detection.md
 **Sources**: curated-sources.md (quality niche feeds by category)
-**Patterns**: common-issues.md
 </reference_index>
 
 <workflows_index>
@@ -90,7 +91,6 @@ All domain knowledge in `references/`:
 <scripts_index>
 Utility scripts in `scripts/`:
 
-- **fetch_feed.py** - HTTP fetching with timeout, redirect handling
 - **parse_opml.py** - OPML parsing and structure validation
 - **validate_feed.py** - Feed health checks (status, recency, content)
 - **write_opml.py** - Generate clean OPML with proper structure

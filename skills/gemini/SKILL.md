@@ -1,6 +1,9 @@
 ---
 name: gemini
-description: Shell out to Gemini CLI from Codex for any task. Use when asked to "pipe content to Gemini", "get Gemini perspective", "use gemini CLI", "run headless AI task", "parallel analysis with Gemini", or "get second opinion from Gemini". Useful for alternative perspectives, batch processing, or leveraging Gemini 2.5 Pro capabilities alongside Codex.
+version: 1
+description: Shell out to Gemini CLI from your AI agent for any task. Use when asked to "pipe content to Gemini", "get Gemini perspective", "use gemini CLI", "run headless AI task", "parallel analysis with Gemini", or "get second opinion from Gemini". Useful for alternative perspectives, batch processing, or leveraging Gemini 2.5 Pro capabilities alongside your AI agent.
+triggers: ["pipe to Gemini", "Gemini perspective", "gemini CLI", "parallel analysis", "second opinion"]
+allowed-tools: [bash]
 ---
 
 # Gemini CLI
@@ -19,9 +22,29 @@ description: Shell out to Gemini CLI from Codex for any task. Use when asked to 
 - [Error Handling](#error-handling)
 - [Quick Reference](#quick-reference)
 
+## Setup
+
+Install the Gemini CLI:
+
+```bash
+# Install via npm (requires Node.js)
+npm i -g @google-gemini/cli
+
+# Verify installation
+gemini --version
+```
+
+You will also need a Gemini API key set as an environment variable:
+
+```bash
+export GEMINI_API_KEY="your-api-key"
+```
+
+Add this to your shell profile (`~/.config/fish/config.fish`, `~/.bashrc`, etc.) for persistence.
+
 ## Overview
 
-Execute tasks using Google's `gemini` command-line tool to leverage Gemini 2.5 Pro alongside Codex. This skill enables headless (non-interactive) execution where content is piped to Gemini, processed with custom prompts, and results are saved directly to files.
+Execute tasks using Google's `gemini` command-line tool to leverage Gemini 2.5 Pro alongside your AI agent. This skill enables headless (non-interactive) execution where content is piped to Gemini, processed with custom prompts, and results are saved directly to files.
 
 ## When to Use This Skill
 

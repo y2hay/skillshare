@@ -1,6 +1,8 @@
 ---
 name: context7
 description: Retrieve up-to-date documentation for software libraries, frameworks, and components via the Context7 API. This skill should be used when looking up documentation for any programming library or framework, finding code examples for specific APIs or features, verifying correct usage of library functions, or obtaining current information about library APIs that may have changed since training.
+version: 1
+triggers: ["library docs", "API reference", "code example", "documentation"]
 ---
 
 # Context7
@@ -83,3 +85,25 @@ curl -s "https://context7.com/api/v2/context?libraryId=/fastapi/fastapi&query=de
 - If the first search result is not correct, check additional results in the array
 - URL-encode query parameters containing spaces (use `+` or `%20`)
 - No API key is required for basic usage (rate-limited)
+
+## References
+
+### Orphan Files in This Directory
+
+The following companion files are available alongside this SKILL.md but are not directly referenced in the workflow above:
+
+| File | Purpose |
+|------|---------|
+| `library-registry.md` | Registry of supported libraries with aliases, docs links, and query optimization patterns |
+| `navigation.md` | Navigation map for the skill directory — quick routes by task and purpose |
+| `README.md` | Quick start overview, ExternalScout subagent workflow, and supported library categories |
+
+These files provide supplementary context: `library-registry.md` for library discovery, `navigation.md` for directory orientation, and `README.md` for the higher-level workflow including ExternalScout integration.
+
+## Success Criteria
+
+- Context7 API calls return relevant, up-to-date documentation snippets
+- Library resolution correctly identifies the best library ID from search results
+- Documentation fetches include accurate code examples and API signatures
+- Responses use current information rather than potentially outdated training data
+- Tips are followed to improve query relevance and result readability

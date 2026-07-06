@@ -1,18 +1,21 @@
 ---
 name: "source-command-hypr"
-description: "Hyprland compositor helper commands"
+description: "Hyprland compositor helper commands for window management, monitor configuration, keybinds, and troubleshooting."
+version: 1
+triggers: ["hyprland", "hyprctl", "compositor", "window manager"]
 ---
+<skill>
+<objective>
+Provide quick access to Hyprland compositor commands and configuration locations for window management, monitor setup, keybinding, and troubleshooting.
+</objective>
 
-# source-command-hypr
+<success_criteria>
+- Commands execute correctly via hyprctl and return expected output
+- Configuration files are correctly referenced and editable
+- Troubleshooting steps resolve common compositor issues
+</success_criteria>
 
-Use this skill when the user asks to run the migrated source command `hypr`.
-
-## Command Template
-
-# Hyprland Helper
-
-Common Hyprland operations and quick access to configuration.
-
+<process>
 ## Quick commands
 
 | Command | Description |
@@ -39,3 +42,5 @@ Common Hyprland operations and quick access to configuration.
 - **Hyprland logs:** `journalctl --user -u hyprland`
 - **Quickshell issues:** Run `/qs` to rebuild after Qt updates
 - **Check keybind conflicts:** `hyprctl binds | grep -i <key>`
+</process>
+</skill>

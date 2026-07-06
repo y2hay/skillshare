@@ -1,6 +1,8 @@
 ---
 name: create-dns-records
 description: Automatically create Cloudflare DNS records for new Traefik Host() labels found in Docker Compose files
+version: 1
+triggers: ["Traefik Host()", "DNS records", "Cloudflare DNS", "create DNS"]
 ---
 
 <skill>
@@ -37,8 +39,8 @@ Run this skill:
 
 3. **Create Missing Records**
    - Use Cloudflare API to create A records
-   - Point to WAN IP from ~/CREDENTIALS.md
-   - Use Zone ID and API token from ~/CREDENTIALS.md
+   - Point to WAN IP from `.env` file
+   - Use Zone ID and API token from `.env` file
 
 4. **Report Results**
    - List created records
@@ -47,10 +49,12 @@ Run this skill:
 </process>
 
 <setup>
-**From ~/CREDENTIALS.md:**
-- Cloudflare API Token: `3r7dm9opEud85MZDlKU3z-lLORho3-_658z1rwM9`
-- Zone ID: `11a6a39c89af36908894f05260088da7`
-- WAN IP: `73.159.93.55`
+**Credentials (create `.env` in this directory):**
+```
+CLOUDFLARE_API_TOKEN=your_api_token_here
+CLOUDFLARE_ZONE_ID=your_zone_id_here
+WAN_IP=your_current_wan_ip
+```
 
 **Compose File Locations:**
 - `/opt/stacks/*/compose.yaml` on 10.10.0.155
@@ -68,8 +72,9 @@ ssh root@10.10.0.155 'grep -rh "traefik.http.routers.*rule=Host" /opt/stacks/*/c
 
 <step_2_get_existing_cloudflare_dns_records>
 ```bash
-curl -sX GET 'https://api.cloudflare.com/client/v4/zones/11a6a39c89af36908894f05260088da7/dns_records?type=A' 
-  -H 'Authorization: Bearer 3r7dm9opEud85MZDlKU3z-lLORho3-_658z1rwM9' 
+source .env
+curl -sX GET "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/dns_records?type=A" \
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
   | jq -r '.result[] | select(.name | endswith("y2hay.com")) | .name'
 ```
 </step_2_get_existing_cloudflare_dns_records>
@@ -78,14 +83,17 @@ curl -sX GET 'https://api.cloudflare.com/client/v4/zones/11a6a39c89af36908894f05
 For each hostname found in Traefik labels that doesn't exist in DNS:
 
 ```bash
+# Load credentials
+source .env
+
 # Extract subdomain (e.g., "newmedia" from "newmedia.y2hay.com")
 subdomain=$(echo "$hostname" | sed 's/\.y2hay\.com$//')
 
 # Create DNS record
-curl -sX POST 'https://api.cloudflare.com/client/v4/zones/11a6a39c89af36908894f05260088da7/dns_records' 
-  -H 'Authorization: Bearer 3r7dm9opEud85MZDlKU3z-lLORho3-_658z1rwM9' 
-  -H 'Content-Type: application/json' 
-  -d "{"type":"A","name":"$subdomain","content":"73.159.93.55","ttl":1,"proxied":false}" 
+curl -sX POST "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/dns_records" \
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "{\"type\":\"A\",\"name\":\"$subdomain\",\"content\":\"$WAN_IP\",\"ttl\":1,\"proxied\":false}" \
   | jq -r '.success, .result.name // .errors[0].message'
 ```
 </step_3_compare_and_create_missing_records>
@@ -103,12 +111,14 @@ Present a summary table:
 - If SSH to Dockge fails, report connection issue
 - If no Traefik labels found, inform user
 - Validate that all hostnames are *.y2hay.com domains
+- If `.env` file is missing, instruct user to create it from the setup section
 </error_handling>
 
 <security_notes>
-- API token has full DNS access to y2hay.com zone
+- API token has full DNS access to y2hay.com zone — store securely in `.env`, never commit
 - Records created with `proxied=false` (DNS-only, no Cloudflare proxy)
 - TTL set to 1 (automatic, managed by Cloudflare)
+- `.env` is gitignored — add to `.gitignore` if not already present
 </security_notes>
 
 </skill>

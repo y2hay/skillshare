@@ -2,6 +2,8 @@
 name: ralph
 description: Ralph - persistent self-referential execution loop wrapping ultrawork with a spawned independent judge
 disable-model-invocation: true
+version: 1
+triggers: ["/ralph", "ultrawork", "persistent loop", "self-referential"]
 ---
 
 # MANDATORY RULES: VIOLATION IS FORBIDDEN
@@ -15,7 +17,26 @@ disable-model-invocation: true
   - Tool names: configurable via `memoryConfig.tools` in `.agents/mcp.json`
   - Do NOT use raw file reads or grep as substitutes. MCP tools are the primary interface for code and memory operations.
 - **This workflow does NOT stop until all completion criteria pass or safeguards trigger.**
-- **Follow the context-loading guide.** Read `.agents/skills/_shared/core/context-loading.md` and load only task-relevant resources.
+- **Follow the context-loading guide.** Read `.agents/skills/_shared/core/context-loading.md` (⛔ TODO: create this file) and load only task-relevant resources.
+  - **Inline requirements** (until the file exists): load only files/resources relevant to the task at hand. Do NOT read entire knowledge bases. Prioritize: (1) task description, (2) relevant skill files, (3) project rules matching changed files, (4) architecture docs when modifying structure.
+
+---
+
+## Prerequisites: `oma` CLI
+
+This workflow depends on the **`oma` CLI** (oh-my-agent). It must be installed and on `PATH` for:
+
+- **L1 event emission** (`oma state:emit`) — used in EXEC checkpoint (Step 1.2) and JUDGE fallback (Step 2.1)
+- **State verification** (`oma state:verify`) — validates checkpoint compliance
+- **Post-EXEC gate verification** (`oma ralph:verify`) — confirms ultrawork ran in full (Step 1.3)
+- **Agent spawning** (`oma agent:spawn`) — used for cross-vendor judge dispatch (Step 2.1)
+
+**If `oma` is unavailable:**
+- Manual fallback for the EXEC gate is described in Step 1.3 (check artifacts via file existence tools).
+- Judge fallback to inline verification is described in Step 2.1 (with `judge-inline-fallback` recorded).
+- L1 events will be skipped; note this as a compliance gap in `session-ralph-{sessionId}.md`.
+
+Install `oma` from the oh-my-agent repository before running ralph.
 
 ---
 
@@ -30,10 +51,16 @@ The detected vendor determines how ultrawork spawns agents internally.
 
 ### Step 0.1: Load Prerequisites
 
-1. Read `.agents/skills/_shared/core/context-loading.md` for resource loading strategy.
-2. Read `.agents/skills/_shared/runtime/memory-protocol.md` for memory protocol.
+1. Read `.agents/skills/_shared/core/context-loading.md` (⛔ TODO: create this file) for resource loading strategy.
+   - **Inline requirements** (until file exists): load only task-relevant resources. No full knowledge base reads. Priority: task description → relevant skills → project rules by changed files → architecture docs when modifying structure.
+2. Read `.agents/skills/_shared/runtime/memory-protocol.md` (⛔ TODO: create this file) for memory protocol.
+   - **Inline requirements** (until file exists):
+     - Memory base path: `memoryConfig.basePath` (default `.serena/memories`)
+     - Session-scoped naming: all ralph session files use suffix `-{sessionId}` (e.g., `session-ralph-20261229-091500.md`)
+     - Tools: use the memory read/write/edit tools configured in `.agents/mcp.json` under `memoryConfig.tools`
 3. Read `.agents/workflows/ralph/resources/judge-protocol.md` for JUDGE rules.
-4. Read `.agents/skills/_shared/runtime/event-spec.md` for the L1 event protocol and `oma state:emit` (used by the EXEC checkpoint in Step 1.2).
+4. Read `.agents/skills/_shared/runtime/event-spec.md` (⛔ TODO: create this file) for the L1 event protocol and `oma state:emit` (used by the EXEC checkpoint in Step 1.2).
+   - **Inline requirements** (until file exists): L1 events are emitted via `oma state:emit "<type>" '<payload>'` with a structured JSON payload containing `subject`, `decision`, and `rationale` fields. Checkpoints are verified with `oma state:verify --workflow <name> --checkpoint <name>`. Both commands exit non-zero on failure.
 
 ### Step 0.2: Define Completion Criteria
 

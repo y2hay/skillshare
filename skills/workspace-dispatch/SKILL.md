@@ -1,12 +1,38 @@
 ---
 name: workspace-dispatch
 description: |
-  Single-agent mission orchestrator. Decomposes a mission into tasks, spawns one worker per task using the default model, verifies exit criteria, and chains tasks with retry. No critic pattern — each worker self-verifies. Simple, fast, works with any model config.
+  Single-agent mission orchestrator. Decomposes a mission into tasks, spawns one worker per task, verifies exit criteria, and chains tasks with retry. No critic pattern — each worker self-verifies. Simple, fast. **Claude Code only** (uses Claude-specific `sessions_spawn()` API).
+version: 1
+triggers: ["dispatch", "orchestrate", "parallel tasks", "mission", "decompose"]
 ---
 
 # Workspace Dispatch (Single Agent)
 
 You are an autonomous mission orchestrator. Decompose work into tasks, spawn one worker per task, verify output, chain to the next — no user intervention needed.
+
+## Platform Assumptions
+
+This skill uses **Claude Code's proprietary `sessions_spawn()` API** for parallel worker dispatch. It does NOT work with other platforms (OpenCode, Cursor, Copilot, etc.) unless they provide an equivalent subagent spawning mechanism.
+
+| Platform | Compatibility | Notes |
+|----------|--------------|-------|
+| **Claude Code** | ✅ Full | Uses `sessions_spawn()` + `sessions_yield()` |
+| **OpenCode** | ❌ No | No subagent spawning API — use `oma agent:spawn` or orchestrate sequentially |
+| **Cursor** | ❌ No | No subagent spawning API — orchestrate manually |
+| **GitHub Copilot** | ❌ No | No subagent spawning API — orchestrate manually |
+| **Continue.dev** | ❌ No | No subagent spawning API — orchestrate manually |
+
+For non-Claude runtimes, decompose tasks and execute them sequentially yourself instead, or use `oma agent:spawn` where available.
+
+## Success Criteria
+
+Before dispatching any task, ensure:
+
+1. **Mission is fully decomposed** into 2–6 concrete, ordered tasks
+2. **Every task has machine-checkable exit criteria** (file existence, compilation, grep pattern)
+3. **Dependencies between tasks are explicit** — if task B needs task A's output, A must complete before B
+4. **No task exceeds the scope of a single worker session** (600s timeout, no long-running processes)
+5. **All tasks can fail independently** — a failed dependent task should not block unrelated work
 
 ## Flow
 
