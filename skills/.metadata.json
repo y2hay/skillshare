@@ -4,7 +4,7 @@
     "skill-issue": {
       "source": "https://github.com/krispuckett/skill-issue.git",
       "type": "github",
-      "installed_at": "2026-07-06T13:06:54.791244732-04:00",
+      "installed_at": "2026-07-06T13:32:56.466354393-04:00",
       "repo_url": "https://github.com/krispuckett/skill-issue.git",
       "version": "2f8b4af",
       "file_hashes": {
@@ -18,7 +18,7 @@
     "skillshare": {
       "source": "https://github.com/runkids/skillshare.git/skills/skillshare",
       "type": "github-subdir",
-      "installed_at": "2026-07-06T13:07:25.662505627-04:00",
+      "installed_at": "2026-07-06T13:32:57.496214666-04:00",
       "repo_url": "https://github.com/runkids/skillshare.git",
       "subdir": "skills/skillshare",
       "version": "67bb2c1",
