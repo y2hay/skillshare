@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/runkids/skillshare/main/schemas/config.schema.json
+source: /home/xcx/.config/skillshare/skills
+git_root: root
+mode: merge
+targets:
+  antigravity:
+    skills:
+      path: /home/xcx/.gemini/antigravity/global_skills
+      mode: copy
+  claude:
+    skills:
+      path: /home/xcx/.claude/skills
+      mode: copy
+  codex:
+    skills:
+      path: /home/xcx/.codex/skills
+      mode: copy
+  gemini:
+    skills:
+      path: /home/xcx/.gemini/skills
+      mode: copy
+  hermes:
+    skills:
+      path: /home/xcx/.hermes/skills
+      mode: copy
+  opencode:
+    skills:
+      path: /home/xcx/.config/opencode/skills
+      mode: copy
+  pi:
+    skills:
+      path: /home/xcx/.pi/skills
+      mode: copy
+  universal:
+    skills:
+      path: /home/xcx/.agents/skills
+extras:
+  - name: claude-agents
+    targets:
+      - path: ~/.claude/agents
+        mode: copy
+  - name: claude-rules
+    targets:
+      - path: ~/.claude/rules
+        mode: copy
+  - name: opencode-agents
+    targets:
+      - path: ~/.config/opencode/agent
+        mode: copy
+  - name: opencode-rules
+    targets:
+      - path: ~/.config/opencode/rules
+        mode: copy
+ignore:
+  - '**/.DS_Store'
+  - '**/.git/**'
+audit:
+  block_threshold: CRITICAL
