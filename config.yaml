@@ -55,6 +55,10 @@ extras:
     targets:
       - path: ~/.pi/agent/agents
         mode: copy
+  - name: pi-prompts
+    targets:
+      - path: ~/.pi/prompts
+        mode: copy
 ignore:
   - '**/.DS_Store'
   - '**/.git/**'
