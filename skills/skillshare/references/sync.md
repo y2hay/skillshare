@@ -11,14 +11,48 @@
 
 ## sync
 
-Distribute skills from source to all targets via symlinks.
+Distribute skills from source to all targets using each target's sync mode (`merge` / `copy` / `symlink`).
 
 ```bash
 skillshare sync                # Execute (auto-detects mode)
+skillshare sync --all          # Sync skills + extras
 skillshare sync --dry-run      # Preview
 skillshare sync --force        # Override conflicts
+skillshare sync --json         # JSON output
 skillshare sync -g             # Force global mode
 ```
+
+### Sync modes (quick reference)
+
+- `merge` (default): per-skill symlinks, preserves local target skills.
+- `copy`: real-file copies with `.skillshare-manifest.json` tracking managed entries.
+- `symlink`: whole target directory symlinked to source.
+
+Copy mode note:
+- `skillshare doctor` duplicate checks ignore manifest-managed copy entries (expected mirrors of source).
+- Duplicate warnings in copy mode are for true local copies that collide with source skill names.
+
+## sync extras
+
+Sync non-skill resources (rules, commands, prompts) to arbitrary directories. **Global only.**
+
+```bash
+skillshare sync extras            # Sync all configured extras
+skillshare sync extras --dry-run  # Preview
+skillshare sync extras --force    # Overwrite conflicts
+```
+
+Config example:
+```yaml
+extras:
+  - name: rules
+    targets:
+      - path: ~/.claude/rules
+      - path: ~/.cursor/rules
+        mode: copy
+```
+
+Source: `~/.config/skillshare/<name>/`. Modes: `merge` (default, per-file symlinks), `copy`, `symlink`.
 
 ## collect
 
@@ -29,6 +63,7 @@ Import skills from target(s) to source.
 skillshare collect claude      # From specific target
 skillshare collect --all       # From all targets
 skillshare collect --dry-run   # Preview
+skillshare collect claude --json   # JSON output (implies --force)
 
 # Project (auto-detected or -p)
 skillshare collect claude     # From project target
