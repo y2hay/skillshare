@@ -59,6 +59,14 @@ extras:
     targets:
       - path: ~/.pi/prompts
         mode: copy
+  - name: claude-commands
+    targets:
+      - path: ~/.claude/commands
+        mode: copy
+  - name: opencode-commands
+    targets:
+      - path: ~/.config/opencode/command
+        mode: copy
 ignore:
   - '**/.DS_Store'
   - '**/.git/**'
