@@ -1,8 +1,0 @@
-installed_at: '2026-02-17T06:25:31+00:00'
-skill_id: git/gemini
-git_repo: https://github.com/SpillwaveSolutions/gemini-skill
-skill_path: /tmp/skilz-git-1_0uwdo1
-git_sha: 68f8ff5266ed093de39e2b9ba430a118e5861548
-skilz_version: 1.10.0
-install_mode: copy
-canonical_path: null
