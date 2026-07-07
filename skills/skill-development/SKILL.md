@@ -1,6 +1,6 @@
 ---
 
-name: Skill Development
+name: skill-development
 description: |
   Use when creating or improving agent skills; triggers include "create a skill", "write a new skill", "improve skill description", "skill structure", and "progressive disclosure".
 version: 0.1.0

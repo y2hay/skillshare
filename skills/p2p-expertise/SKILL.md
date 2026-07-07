@@ -1,6 +1,6 @@
 ---
 
-name: p2p expertise
+name: p2p-expertise
 description: |
   Use when building or optimizing P2P file sharing infrastructure; triggers include "set up qBittorrent", "Usenet stack", "SABnzbd", "arr stack", and "seedbox optimization". Covers BitTorrent, Usenet, aria2, media automation, and performance troubleshooting.
 version: 1

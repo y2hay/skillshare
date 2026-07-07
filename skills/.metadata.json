@@ -1,6 +1,165 @@
 {
   "version": 1,
   "entries": {
+    "brainstorming": {
+      "source": "github.com/obra/superpowers/skills/brainstorming",
+      "type": "github-subdir",
+      "installed_at": "2026-07-07T00:29:27.343199799-04:00",
+      "repo_url": "https://github.com/obra/superpowers.git",
+      "subdir": "skills/brainstorming",
+      "version": "d884ae0",
+      "tree_hash": "b14f49a55a8387cfa12ac89794ab79698d7fddbb",
+      "file_hashes": {
+        "SKILL.md": "sha256:e14914605f640e0841758e45d0ab2a53243b59b921f929e47921c99668f2e61d",
+        "scripts/frame-template.html": "sha256:6a8a4e58bd6a44b904e2e3c57de774481d909204597e1498de53f1b2fecc4c4e",
+        "scripts/helper.js": "sha256:43c6d69954a46ec34a2a262bcc62a9a7e83e839c739f199cb72646d397c686e3",
+        "scripts/server.cjs": "sha256:2d2961ea8d11f56c5f4c3a1a68d22709efa5d7601a2246d8c880774e7e9e8412",
+        "scripts/start-server.sh": "sha256:a4e5ae84275bcaacd2f84345afeabe59cf7b00ba080e123da7cc1fb226f12847",
+        "scripts/stop-server.sh": "sha256:0b5ccbbd57f62d3ed88993f7940b5ee0e5c0fc9b21c550c623da4f6292e47daf",
+        "spec-document-reviewer-prompt.md": "sha256:95a0a195de9d984be2fffa95bab16fc8c563bc296a9cfc5e9c29cb3ece0d7457",
+        "visual-companion.md": "sha256:3321a044c777d03d7177df41c77bb83155ff2a6d0c16b8a3d752426d29f14ea8"
+      }
+    },
+    "dispatching-parallel-agents": {
+      "source": "github.com/obra/superpowers/skills/dispatching-parallel-agents",
+      "type": "github-subdir",
+      "installed_at": "2026-07-07T00:29:19.360346499-04:00",
+      "repo_url": "https://github.com/obra/superpowers.git",
+      "subdir": "skills/dispatching-parallel-agents",
+      "version": "d884ae0",
+      "tree_hash": "adc9175fe3545914d5a07e5475bc0e82d5aaed6f",
+      "file_hashes": {
+        "SKILL.md": "sha256:f0df13f584049059cc5619f90061405b89dcc6e28ab3f2a8517d27d99c7a46a6"
+      }
+    },
+    "dms-plugin-dev": {
+      "source": "github.com/AvengeMedia/DankMaterialShell/.agents/skills/dms-plugin-dev",
+      "type": "github-subdir",
+      "installed_at": "2026-07-06T14:04:52.458014413-04:00",
+      "repo_url": "https://github.com/AvengeMedia/DankMaterialShell.git",
+      "subdir": ".agents/skills/dms-plugin-dev",
+      "version": "405ea70",
+      "tree_hash": "5964826cd3473846c48d7ab4a5c31a4b5d2328ad",
+      "file_hashes": {
+        "SKILL.md": "sha256:b05f06d35644ff08049658c68f46920d599623eabac2315a908d6d6ec77ce6b2",
+        "assets/plugin-schema.json": "sha256:fe6de5c1214c0f1d79e04bbe652d4a315a6d57cfe929502439c1986ab7d509d7",
+        "assets/templates/daemon/Daemon.qml": "sha256:b1741015bcd884370201fcb9e02ce68912b10e7fcc0917724f92c96a6dcf6cd0",
+        "assets/templates/daemon/Settings.qml": "sha256:1b3651fa2f023374f091a6d810676261e1451c04e393fdeb1e19c5c7f2df5cf0",
+        "assets/templates/daemon/plugin.json": "sha256:352cdf49cd1c93d261ccb95204c5c8675314683126176e2aaf5c187231348f87",
+        "assets/templates/desktop/Settings.qml": "sha256:1591c667b37b591889011fcdc0be8d39a4fb176ff0bdca70041a38df1fd8e386",
+        "assets/templates/desktop/Widget.qml": "sha256:328dcdd247fd296ee5014a91779d15273912f7f7de6e0340a18fb732ec15c428",
+        "assets/templates/desktop/plugin.json": "sha256:080a0571e6af96dfb5b93cb157eecb41969ec91201d2e3c370efcdf6cdf8ab59",
+        "assets/templates/launcher/Launcher.qml": "sha256:2bf2d31f64f2bd7f7a221eb3ca473ed240a29e7d8d5a56badd20fbad5cb1b5bd",
+        "assets/templates/launcher/Settings.qml": "sha256:758aab89f726e25254fb5d979f2a5e9611d7add857c52cf66d316f85e294af10",
+        "assets/templates/launcher/plugin.json": "sha256:61bd609b7801347179aba8770a28047529dc43ca5e1fd5eb498a37f3f5461363",
+        "assets/templates/widget/Settings.qml": "sha256:ef5a6e5f913c4844a99f90cfc5998976b676e251f4575ba3961717b4f089c34f",
+        "assets/templates/widget/Widget.qml": "sha256:869de804b8fc6025185b5eb1b28bb44b987f47aa2a93f7c1e87ffa7e954255b4",
+        "assets/templates/widget/plugin.json": "sha256:67c19d7d32d3575fce1d64c972724ebeee446e213a55de84e9cec37ea401f2c4",
+        "references/advanced-patterns.md": "sha256:cbb7ad34bfa202532e0ada19a516b67207f6b48de66862c5f5e871a03c79740c",
+        "references/daemon-plugin-guide.md": "sha256:de77ade7c145a93770ac92bc5c556806dc9bfc47615dbb32bd3ec93d553b6d81",
+        "references/data-persistence-guide.md": "sha256:ca64f4f9fb80930ca45b6a504bd5547c95670c180fbb80e186f1c6e490260cd6",
+        "references/desktop-plugin-guide.md": "sha256:8477523cae72fb34abf7a10958048cfa12d6c57198ededb27b03722722723c8e",
+        "references/launcher-plugin-guide.md": "sha256:944edef760c2dd47c1388df5f34eaaf01251a573742543d10194bc39871c8d8e",
+        "references/plugin-manifest-reference.md": "sha256:c4a35dd539502496838d4a68b775cfc0a2a6a93edf61f766374bbc0db4180c8f",
+        "references/popout-service-reference.md": "sha256:4de39c486b9752f942dc47945c6d82c872c9a8183fd43df9f2111739a54c18bb",
+        "references/settings-components-reference.md": "sha256:b403afad8f797e6dd8f15781a4bae3b939b314626519f2c466e6ec74c7f9a4ab",
+        "references/theme-reference.md": "sha256:d9d1e9b1dea743c264b293466acc8543a2a5e423f615a00d5f4136787dfb9b65",
+        "references/widget-plugin-guide.md": "sha256:6af8521718d1f2164f3a3c488f679f3858f69b6f8e7b0fe22162830f020b8dac"
+      }
+    },
+    "gaming-vm": {
+      "source": "github.com/abl030/nixosconfig/.claude/skills/gaming-vm",
+      "type": "github-subdir",
+      "installed_at": "2026-07-06T14:30:09.621907798-04:00",
+      "repo_url": "https://github.com/abl030/nixosconfig.git",
+      "subdir": ".claude/skills/gaming-vm",
+      "version": "f4b6764",
+      "tree_hash": "990ae00122817eda9d8694e1152432a2be4956e8",
+      "file_hashes": {
+        "SKILL.md": "sha256:29d21bb39a53a7e1b91042549f6214ab5f023db6f1c3d34c2c737bf721f7195c"
+      }
+    },
+    "lan-control": {
+      "source": "github.com/ythx-101/lan-control",
+      "type": "github",
+      "installed_at": "2026-07-06T22:51:25.136482275-04:00",
+      "repo_url": "https://github.com/ythx-101/lan-control.git",
+      "version": "55c8a44",
+      "file_hashes": {
+        ".gitignore": "sha256:c6cdf5287ae2e04964e378688e362f2c1fe9ac568f36c7a6a0cbf1cea1b1f28e",
+        "LICENSE": "sha256:010ebb6fd94f0d00f8388772f8a164ac26f35c931bc8bffefb38088f73c44ece",
+        "README.md": "sha256:36ec0f7151e8e8e192ce5b694404085fad76bcdda7fb210fe6bd3bee69ba977b",
+        "SKILL.md": "sha256:779c8ee5d85b0bd4b60eaf598c727e5bff6cb98465c3e4a0a483ef82abaaa980",
+        "banner.png": "sha256:718bf668db2102a367316b51ab8432ddf854b557574848ac4802c9da6f3392c0",
+        "cli.py": "sha256:e47aebe64499995f2223882fa1d7513fdc8018d3d8089edb252f0289a229b32c",
+        "devices/_schema.yaml": "sha256:313c63c7b1e0857bd8f5077101d9ef29b6609d9d457790de59f24d4dfa2442e6",
+        "devices/ac/.gitkeep": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "devices/ac/generic-ir-ac.yaml": "sha256:a24f72c2b7d81c5edac428ad481b2b17bab2823f66902f394cd718b13c4edf57",
+        "devices/camera/.gitkeep": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "devices/iot/.gitkeep": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "devices/iot/android-tv-box.yaml": "sha256:14863cfc5cb1df6039c421072f36aa177ade03c68236dd27ca3331312c953af6",
+        "devices/iot/eink-display.yaml": "sha256:f2319448bf4013c2c99a8c6afa3b98597c28e6130d7af0d1f825218ef5788774",
+        "devices/ir-remote/broadlink-rm4.yaml": "sha256:37f251893eca35e769ea1cb92827856ebd5cc9dc660d841bd815dc5526adb384",
+        "devices/router/openwrt.yaml": "sha256:7aa929d39e7ceca3738ca454fafa9c9af77780c2d8194ac5e056a51963fce93f",
+        "devices/speaker/.gitkeep": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "devices/tv/lg-webos.yaml": "sha256:98479d51674f1edaf0e5ef20473a5b37d8bffcadcf798b3cf5f678f21195d5d7",
+        "drivers/__init__.py": "sha256:2cc9c667c1ea5314a829a2a844ae6aab930d633aef15061047d3ae3c47f8d573",
+        "drivers/adb.py": "sha256:a2671f1ac343e8692e376a5776d0de3093f504f3b5710ea17de9797f91cc8966",
+        "drivers/broadlink.py": "sha256:f86e3cbc9244c8312e0235503455029c62eb0511cf27c3e0163dd84896ba6282",
+        "drivers/http.py": "sha256:e44b059b3e609e372db002c69d25429fb6c84582646cd7a1d1f7c0be3c3ba693",
+        "drivers/ssap.py": "sha256:9177d29e153f0a3fe745e7fdb6e4b75b445c7c0227899ee260ff0d65ed5fc062",
+        "drivers/ssh.py": "sha256:c51e977340e2dd6b84196f770d283e91808c070a238c4de1095ce49852830c68",
+        "examples/my-home.json": "sha256:cf5a21c859c0e777f4ac014a58fc662e5fdd112b6c2b572e4ca17b3bb2676757",
+        "references/contributing.md": "sha256:cb193d98fee1cf48bdbeaf915fd77a77b4a494cab99b86dd2d79828e90bc6088",
+        "references/device-schema.md": "sha256:3e725d73edade16725aa1d1ce649359f64c54b23dc8699c8391a787675044e47",
+        "references/router-profiles.md": "sha256:7bf2fc2ad7777744c81898bbd9b8fc15ace559a11fd3f60a11408a2999401e9a",
+        "references/troubleshooting.md": "sha256:39c44e8d060672afb5ac4fc44de9d1e042f3825adb657cfb40199267c4a5d30c",
+        "registry.py": "sha256:4d3371907f43b9835b1621fa68e889413a28beb1861073a900c1be28b4b1beb9",
+        "requirements.txt": "sha256:86969908dfccd3d5d0aff5603c1c41a3f193078253948d3d9f10ea1a20b8f7a2",
+        "scripts/connect.sh": "sha256:e840a385760739fc184bab17299e359eb15ee5da7b23a5a56546414032fc086c",
+        "scripts/devices.sh": "sha256:26e724fe5f7dfd75887c3a8fcc3058cb71a44e96e1a864d53e6cb4b64ad60c63",
+        "scripts/discover.sh": "sha256:09a544f572207fe74049f6fb7eb0af59753f0c30f8f774ef7ea1415b6c3c6dc1",
+        "scripts/health.sh": "sha256:182aa25f6499fc5d54908c18564af8318f1169eee961098af570f1b692dc782d",
+        "scripts/ping.sh": "sha256:b7f4f2bc5e69e9462ecd76083e3b1e6b2109e603c92761a36358e0e564114d55",
+        "scripts/run.sh": "sha256:cc5418cda91dbc1e8c87f26dc105e9355c4674a815cf1db4a0bf2ac29f3d27d9"
+      }
+    },
+    "legba": {
+      "source": "github.com/evilsocket/legba/skills/legba",
+      "type": "github-subdir",
+      "installed_at": "2026-07-06T14:24:31.219178695-04:00",
+      "repo_url": "https://github.com/evilsocket/legba.git",
+      "subdir": "skills/legba",
+      "version": "c82104a",
+      "tree_hash": "865447716ea23e1668e4d5a981e81172d2b242b5",
+      "file_hashes": {
+        "SKILL.md": "sha256:c0468e61a85ac637e0174c9de9df78d42f560e3d3fa2da3ab4e5749e63caf4fd"
+      }
+    },
+    "proxmox-full": {
+      "source": "github.com/sundial-org/awesome-openclaw-skills/skills/proxmox-full",
+      "type": "github-subdir",
+      "installed_at": "2026-07-06T14:25:44.244692355-04:00",
+      "repo_url": "https://github.com/sundial-org/awesome-openclaw-skills.git",
+      "subdir": "skills/proxmox-full",
+      "version": "b80cde2",
+      "tree_hash": "ed09bcad429e2968a160962cec17b8fcc8ebeece",
+      "file_hashes": {
+        "SKILL.md": "sha256:b046cea25203f224c8535387f323fd8764f50b04cd6c9f215e160c673d29371c"
+      }
+    },
+    "shoal-download": {
+      "source": "github.com/StrangeNoob/shoal/.claude/skills/shoal-download",
+      "type": "github-subdir",
+      "installed_at": "2026-07-06T14:29:31.394891159-04:00",
+      "repo_url": "https://github.com/StrangeNoob/shoal.git",
+      "subdir": ".claude/skills/shoal-download",
+      "version": "5a94fb1",
+      "tree_hash": "9d7d4ac2309fc118f5b6360374ad952e1cf998e3",
+      "file_hashes": {
+        "SKILL.md": "sha256:74b616650513fbd3ae4fc4c8136ba79ab087238427226495a87e506fe5e30434"
+      }
+    },
     "skill-issue": {
       "source": "https://github.com/krispuckett/skill-issue.git",
       "type": "github",

@@ -1,6 +1,6 @@
 ---
 
-name: MCP Integration
+name: mcp-integration
 description: |
   Use when adding, configuring, or troubleshooting MCP servers; triggers include "add MCP server", "configure MCP", "integrate MCP", ".mcp.json", and "Model Context Protocol".
 version: 0.1.0
