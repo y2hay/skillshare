@@ -4,7 +4,7 @@
     "brainstorming": {
       "source": "github.com/obra/superpowers/skills/brainstorming",
       "type": "github-subdir",
-      "installed_at": "2026-07-07T00:29:27.343199799-04:00",
+      "installed_at": "2026-07-07T20:05:35.489015045-04:00",
       "repo_url": "https://github.com/obra/superpowers.git",
       "subdir": "skills/brainstorming",
       "version": "d884ae0",
@@ -23,7 +23,7 @@
     "dispatching-parallel-agents": {
       "source": "github.com/obra/superpowers/skills/dispatching-parallel-agents",
       "type": "github-subdir",
-      "installed_at": "2026-07-07T00:29:19.360346499-04:00",
+      "installed_at": "2026-07-07T20:05:36.236708008-04:00",
       "repo_url": "https://github.com/obra/superpowers.git",
       "subdir": "skills/dispatching-parallel-agents",
       "version": "d884ae0",
@@ -35,10 +35,10 @@
     "dms-plugin-dev": {
       "source": "github.com/AvengeMedia/DankMaterialShell/.agents/skills/dms-plugin-dev",
       "type": "github-subdir",
-      "installed_at": "2026-07-06T14:04:52.458014413-04:00",
+      "installed_at": "2026-07-07T20:05:37.203216707-04:00",
       "repo_url": "https://github.com/AvengeMedia/DankMaterialShell.git",
       "subdir": ".agents/skills/dms-plugin-dev",
-      "version": "405ea70",
+      "version": "d799175",
       "tree_hash": "5964826cd3473846c48d7ab4a5c31a4b5d2328ad",
       "file_hashes": {
         "SKILL.md": "sha256:b05f06d35644ff08049658c68f46920d599623eabac2315a908d6d6ec77ce6b2",
@@ -70,10 +70,10 @@
     "gaming-vm": {
       "source": "github.com/abl030/nixosconfig/.claude/skills/gaming-vm",
       "type": "github-subdir",
-      "installed_at": "2026-07-06T14:30:09.621907798-04:00",
+      "installed_at": "2026-07-07T20:05:38.087702443-04:00",
       "repo_url": "https://github.com/abl030/nixosconfig.git",
       "subdir": ".claude/skills/gaming-vm",
-      "version": "f4b6764",
+      "version": "b4ec081",
       "tree_hash": "990ae00122817eda9d8694e1152432a2be4956e8",
       "file_hashes": {
         "SKILL.md": "sha256:29d21bb39a53a7e1b91042549f6214ab5f023db6f1c3d34c2c737bf721f7195c"
@@ -82,7 +82,7 @@
     "lan-control": {
       "source": "github.com/ythx-101/lan-control",
       "type": "github",
-      "installed_at": "2026-07-06T22:51:25.136482275-04:00",
+      "installed_at": "2026-07-07T20:05:38.79863298-04:00",
       "repo_url": "https://github.com/ythx-101/lan-control.git",
       "version": "55c8a44",
       "file_hashes": {
@@ -127,7 +127,7 @@
     "legba": {
       "source": "github.com/evilsocket/legba/skills/legba",
       "type": "github-subdir",
-      "installed_at": "2026-07-06T14:24:31.219178695-04:00",
+      "installed_at": "2026-07-07T20:05:39.837318612-04:00",
       "repo_url": "https://github.com/evilsocket/legba.git",
       "subdir": "skills/legba",
       "version": "c82104a",
@@ -136,10 +136,39 @@
         "SKILL.md": "sha256:c0468e61a85ac637e0174c9de9df78d42f560e3d3fa2da3ab4e5749e63caf4fd"
       }
     },
+    "linux-system-health": {
+      "source": "github.com/LeoYeAI/openclaw-master-skills/skills/linux-system-health",
+      "type": "github-subdir",
+      "installed_at": "2026-07-07T20:09:04.910862768-04:00",
+      "repo_url": "https://github.com/LeoYeAI/openclaw-master-skills.git",
+      "subdir": "skills/linux-system-health",
+      "version": "67e40a3",
+      "tree_hash": "1f361ac482bdf631875cd39972105b47c8188b51",
+      "file_hashes": {
+        "LICENSE.md": "sha256:6b042cca3001a0c37d838b5168b316094c650966e58656114322a429efdd8e49",
+        "README.md": "sha256:d89b9990e0c6651da0fbced72b4af9e2ead49973a478ab66bed8983c21ce497c",
+        "SKILL.md": "sha256:bc3bfb45a26374eff2e6b8658eb8dcea494c69baa1ecfbd50043cc6170ea1e67",
+        "_meta.json": "sha256:836b582dcd7864f018fcd3fa450459c849be5a2a4368823ad76302c37b230d2a",
+        "reference.md": "sha256:c6333e022365ef48c3691efa80a3527e95efc372b74183f1c623873632b858e4",
+        "scripts/diagnostics.sh": "sha256:68257e59a98ca87fce0c57abf0d4a7f6881f0c87b3729f2c647136064311fd57"
+      }
+    },
+    "network-tools": {
+      "source": "github.com/chaterm/terminal-skills/linux/network-tools",
+      "type": "github-subdir",
+      "installed_at": "2026-07-07T20:09:50.039920464-04:00",
+      "repo_url": "https://github.com/chaterm/terminal-skills.git",
+      "subdir": "linux/network-tools",
+      "version": "464c295",
+      "tree_hash": "17df26abb3230c5b07fec9472e281362cc3d9d66",
+      "file_hashes": {
+        "SKILL.md": "sha256:f0a19b6bc8e89475429dc4cd6000ca25fe5c4b262ca16f16d24c82ca3286ee43"
+      }
+    },
     "proxmox-full": {
       "source": "github.com/sundial-org/awesome-openclaw-skills/skills/proxmox-full",
       "type": "github-subdir",
-      "installed_at": "2026-07-06T14:25:44.244692355-04:00",
+      "installed_at": "2026-07-07T20:05:40.851611516-04:00",
       "repo_url": "https://github.com/sundial-org/awesome-openclaw-skills.git",
       "subdir": "skills/proxmox-full",
       "version": "b80cde2",
@@ -151,19 +180,19 @@
     "shoal-download": {
       "source": "github.com/StrangeNoob/shoal/.claude/skills/shoal-download",
       "type": "github-subdir",
-      "installed_at": "2026-07-06T14:29:31.394891159-04:00",
+      "installed_at": "2026-07-07T20:05:45.394988922-04:00",
       "repo_url": "https://github.com/StrangeNoob/shoal.git",
       "subdir": ".claude/skills/shoal-download",
-      "version": "5a94fb1",
-      "tree_hash": "9d7d4ac2309fc118f5b6360374ad952e1cf998e3",
+      "version": "1d928d8",
+      "tree_hash": "2f0afbfe19e2ea96f402eeccec8c47ed38c631cf",
       "file_hashes": {
-        "SKILL.md": "sha256:74b616650513fbd3ae4fc4c8136ba79ab087238427226495a87e506fe5e30434"
+        "SKILL.md": "sha256:f95fe8e677f1e41e0a6b32d0f3955b14a9f5c246b6c6f97fea4492208c83bc41"
       }
     },
     "skill-issue": {
       "source": "https://github.com/krispuckett/skill-issue.git",
       "type": "github",
-      "installed_at": "2026-07-06T13:32:56.466354393-04:00",
+      "installed_at": "2026-07-07T20:05:45.791666613-04:00",
       "repo_url": "https://github.com/krispuckett/skill-issue.git",
       "version": "2f8b4af",
       "file_hashes": {
@@ -177,7 +206,7 @@
     "skillshare": {
       "source": "https://github.com/runkids/skillshare.git/skills/skillshare",
       "type": "github-subdir",
-      "installed_at": "2026-07-06T13:32:57.496214666-04:00",
+      "installed_at": "2026-07-07T20:05:46.809565865-04:00",
       "repo_url": "https://github.com/runkids/skillshare.git",
       "subdir": "skills/skillshare",
       "version": "67bb2c1",
@@ -196,6 +225,19 @@
         "references/targets.md": "sha256:130b0b07b17a88d4bc09af0262a6b161421946f5442295dc5bc828f95226763e",
         "references/trash.md": "sha256:fb94aa6b71d469fa8f6b5e728fcab531b6eb010a2092389b02eaaadf3ebc98cf",
         "scripts/run.sh": "sha256:e434ebdb7d3ae0b37c00ddc36687bc975da9e766b8cb863f9aed9a624ebbdfa9"
+      }
+    },
+    "tailscale": {
+      "source": "github.com/alsk1992/CloddsBot/src/skills/bundled/tailscale",
+      "type": "github-subdir",
+      "installed_at": "2026-07-07T20:05:47.74457645-04:00",
+      "repo_url": "https://github.com/alsk1992/CloddsBot.git",
+      "subdir": "src/skills/bundled/tailscale",
+      "version": "e71a5f6",
+      "tree_hash": "f4d1d1950648f590c0a1a41f95e6b89f13818469",
+      "file_hashes": {
+        "SKILL.md": "sha256:456781042ded6669a33d2020889c4faaf1dd08fa96b05d62eb8a3a0bba8fbbd6",
+        "index.ts": "sha256:2aa06e71fa1e3fe3a0d15f4d5cbd8cc5635fb447c119896293f08bddf1041c77"
       }
     }
   }
