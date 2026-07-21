@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "entries": {
+    "_skillshare": {
+      "source": "https://github.com/y2hay/skillshare.git",
+      "tracked": true,
+      "branch": "trunk"
+    },
+    "proxmox-skill": {
+      "source": "https://github.com/Sunwood-ai-labs/proxmox-skill",
+      "tracked": true,
+      "branch": "main",
+      "file_hashes": {
+        ".env": "sha256:29040afc910aba4fddaa94d75be7c955ef485ca564dac5b5c11d43de0cd4a88f",
+        ".env.example": "sha256:2d634051b81d52722eac40210134410c6bc1457fd20a891da1662b7fbec7aee5",
+        ".github/workflows/ci.yml": "sha256:c2be36c22ae8aacaed9ef006267783dcafe92927f672038280a8200f009277f2",
+        ".github/workflows/deploy-docs.yml": "sha256:9b30e05ce0dcbefd65cbd0cb4329716dee386b47e52d7ed35fa13ad444c9bc9a",
+        ".gitignore": "sha256:c6e8ad3c51128cf497033d75780bd3027b9452d03681ac4afcf843dbf0c75c54",
+        "LICENSE": "sha256:ff2c0ccc04836f79dde1c4b4a331d2c08fa5b4f59978e667a1ed3c068e695c59",
+        "README.ja.md": "sha256:e3cf2fe702f94cad92b57a13a922cfc0e52c5c5df01acaa92995342da60fb737",
+        "README.md": "sha256:7542e314720ae0d8e9a1813c0e88f2e3c910fa68556c129ced9f79c1fffee063",
+        "SKILL.md": "sha256:41a21f303be9d20635441d129ad0a8a2694df1fc1bb8cf641ef656b0cf40bc59",
+        "agents/openai.yaml": "sha256:630ca94f604e14a21f19382f92a1d54434926e6487dd3ca1d79f34118b1746ab",
+        "docs/.vitepress/config.ts": "sha256:a303b4012029b04a043300c6fcc9ea6f8cb04d386d5f2ef323dcc63abcaeccc0",
+        "docs/.vitepress/theme/custom.css": "sha256:549c4373eb0b2212d746c0f80335722d3228283cf67ce08cc544f5709d92448a",
+        "docs/.vitepress/theme/index.ts": "sha256:47a53a53574c3437c65aaf76b1c7e0e3c30db953df85f0c45af4e7e2ad249dc8",
+        "docs/guide/command-reference.md": "sha256:d36fc33c83123aadffdcb0fe49ab03a92218e681b72ceb952780f52c71c6f35f",
+        "docs/guide/getting-started.md": "sha256:b0dbe7f83e36172a98b914381b0ac504e935900a761fe9cbc80d5932789b4707",
+        "docs/guide/safety-and-validation.md": "sha256:289b5871543e4a62754a047045501ef7369dc314a11cf907444cf3048b7204f9",
+        "docs/index.md": "sha256:36f97c0a8d80d149dc5c5d58f5be11a0bc35206d03c0533544717eca7e357813",
+        "docs/ja/guide/command-reference.md": "sha256:59126d70a5267840cca4d7be6aa35119e51783fb293f7873e0bb67dc936f42ea",
+        "docs/ja/guide/getting-started.md": "sha256:9ae7d5f77d14fd18d0dddb2ddc5375ae058163ea22f026601ea832c050e9cf51",
+        "docs/ja/guide/safety-and-validation.md": "sha256:46aa89a6e04a03fd54bf8f399d2fb0fd0988ee9a07a04044e997793c46cd2c01",
+        "docs/ja/index.md": "sha256:c3b453483f4090bc43485703f5f3cade305d5d1329e59ae19dbc3d8efc810f33",
+        "docs/package-lock.json": "sha256:1106dc09b79613cbbb69a95bca5f4d5348dd378e9ced9d7bab925b372702d255",
+        "docs/package.json": "sha256:df5df23724697d073c675b2dda17554d6efdb8357a5689c2115075bef9b3ebe5",
+        "docs/public/proxmox-skill-hero.svg": "sha256:5a64c1b1631134f4c44c85a9a0b2c9ea4c03f714997217c20328f1001e6b453d",
+        "docs/public/proxmox-skill-mark.svg": "sha256:cbe51252eddc27f0ef5efd7db0581f66eb0d5a5da53853a3184584f52d5f2c3a",
+        "pyproject.toml": "sha256:0d2b6ab325094391f987275f883fabc3f7b022cf2cd14773208b2e126978f6c6",
+        "references/api-notes.md": "sha256:ff48fba10542893320175e289531498a88fd6d7041f61a03aa2b23bf42d84967",
+        "scripts/examples/cluster_probe.py": "sha256:ef4d619a6aca7700fc0caa1960e61a1963b135f44658fd180d9beeabfd4c25ab",
+        "scripts/examples/guest_snapshot.py": "sha256:f67f59d8bf345f35965690474d8842819b581b50a9c6db6a4b6371fd19e9d482",
+        "scripts/proxmox_vm.py": "sha256:375ac66f0f4b70782cab71666aa3db60c8a9f26afaf3f8a74c7483ce5f7397bd"
+      }
+    },
+    "skillshare": {
+      "source": "github.com/runkids/skillshare/skills/skillshare",
+      "type": "github-subdir",
+      "installed_at": "2026-07-21T00:21:32.085597123-04:00",
+      "repo_url": "https://github.com/runkids/skillshare.git",
+      "subdir": "skills/skillshare",
+      "version": "039ec94",
+      "tree_hash": "a962f31aecab0728d6dbf8d711d8d891cfcfbb09",
+      "file_hashes": {
+        "SKILL.md": "sha256:e6f76cc5982ba31ec3a7a1e5231244b8bf8bd72a885c61492a546986e8c4a1f6",
+        "references/TROUBLESHOOTING.md": "sha256:14855dbd2f20ad7042941959f257c79f768d103e89e55d74d8c3b3d38f9ff5ee",
+        "references/audit.md": "sha256:85a31c32f17f39ce2baa5189a8004c6adec506e5fcf7d20378caa103b015fd5d",
+        "references/backup.md": "sha256:96e2e8d5e2d7cfb8765c2eebb4e6d733b79258de8b3d974fca8972557f7326a6",
+        "references/extras.md": "sha256:c133ccb6a2da342fbf05919c27855cb1de124042f8654396e50ee82a2b7e40e1",
+        "references/init.md": "sha256:41d99a2a49f576e1a2354312856ccf730f8d19d4c8d35c592585d40bc2d14d82",
+        "references/install.md": "sha256:e59b9b1169fb72f063249f56b5fc7dee46bd3f9b9d2fe6d7d73b3319e14ff165",
+        "references/log.md": "sha256:406e85525f53f4deaa0f48bf8b3b53db3e032b99f5a0e926c84542d51b3a3625",
+        "references/status.md": "sha256:0143c8250ecbedfa14607b82cbfb23107294b6c1e053b5726629556b7a47412c",
+        "references/sync.md": "sha256:00877a4a9c1ca0c02a8601aad694cadce61c3facbe57603d36c0ef937028f658",
+        "references/targets.md": "sha256:130b0b07b17a88d4bc09af0262a6b161421946f5442295dc5bc828f95226763e",
+        "references/trash.md": "sha256:fb94aa6b71d469fa8f6b5e728fcab531b6eb010a2092389b02eaaadf3ebc98cf",
+        "scripts/run.sh": "sha256:e434ebdb7d3ae0b37c00ddc36687bc975da9e766b8cb863f9aed9a624ebbdfa9"
+      }
+    }
+  }
+}
