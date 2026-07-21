@@ -80,9 +80,9 @@
       }
     },
     "lan-control": {
-      "source": "github.com/ythx-101/lan-control",
+      "source": "https://github.com/ythx-101/lan-control.git",
       "type": "github",
-      "installed_at": "2026-07-07T20:05:38.79863298-04:00",
+      "installed_at": "2026-07-21T00:51:26.500505477-04:00",
       "repo_url": "https://github.com/ythx-101/lan-control.git",
       "version": "55c8a44",
       "file_hashes": {
