@@ -70,13 +70,13 @@
     "gaming-vm": {
       "source": "github.com/abl030/nixosconfig/.claude/skills/gaming-vm",
       "type": "github-subdir",
-      "installed_at": "2026-07-07T20:05:38.087702443-04:00",
+      "installed_at": "2026-07-21T00:07:10.308820211-04:00",
       "repo_url": "https://github.com/abl030/nixosconfig.git",
       "subdir": ".claude/skills/gaming-vm",
-      "version": "b4ec081",
-      "tree_hash": "990ae00122817eda9d8694e1152432a2be4956e8",
+      "version": "a84828e",
+      "tree_hash": "3f5bf8c19bca8eb51674135abe04d19c6f561bd4",
       "file_hashes": {
-        "SKILL.md": "sha256:29d21bb39a53a7e1b91042549f6214ab5f023db6f1c3d34c2c737bf721f7195c"
+        "SKILL.md": "sha256:da926e86f740040063a167b883b9f10f580adcfe744013300f349e36ae6a7250"
       }
     },
     "lan-control": {
@@ -180,7 +180,7 @@
     "shoal-download": {
       "source": "github.com/StrangeNoob/shoal/.claude/skills/shoal-download",
       "type": "github-subdir",
-      "installed_at": "2026-07-07T20:05:45.394988922-04:00",
+      "installed_at": "2026-07-21T00:07:09.436608101-04:00",
       "repo_url": "https://github.com/StrangeNoob/shoal.git",
       "subdir": ".claude/skills/shoal-download",
       "version": "1d928d8",
@@ -204,24 +204,24 @@
       }
     },
     "skillshare": {
-      "source": "https://github.com/runkids/skillshare.git/skills/skillshare",
+      "source": "github.com/runkids/skillshare/skills/skillshare",
       "type": "github-subdir",
-      "installed_at": "2026-07-07T20:05:46.809565865-04:00",
+      "installed_at": "2026-07-20T14:34:23.953706013-04:00",
       "repo_url": "https://github.com/runkids/skillshare.git",
       "subdir": "skills/skillshare",
-      "version": "67bb2c1",
-      "tree_hash": "0523b33bb3055ffd2570cfb7df681ea73d14ee6d",
+      "version": "039ec94",
+      "tree_hash": "a962f31aecab0728d6dbf8d711d8d891cfcfbb09",
       "file_hashes": {
-        "SKILL.md": "sha256:b2a6371f715a9c06f4ac6aceffd1d135c9220441e5a1f357c07c88289cb5248d",
+        "SKILL.md": "sha256:e6f76cc5982ba31ec3a7a1e5231244b8bf8bd72a885c61492a546986e8c4a1f6",
         "references/TROUBLESHOOTING.md": "sha256:14855dbd2f20ad7042941959f257c79f768d103e89e55d74d8c3b3d38f9ff5ee",
         "references/audit.md": "sha256:85a31c32f17f39ce2baa5189a8004c6adec506e5fcf7d20378caa103b015fd5d",
         "references/backup.md": "sha256:96e2e8d5e2d7cfb8765c2eebb4e6d733b79258de8b3d974fca8972557f7326a6",
         "references/extras.md": "sha256:c133ccb6a2da342fbf05919c27855cb1de124042f8654396e50ee82a2b7e40e1",
         "references/init.md": "sha256:41d99a2a49f576e1a2354312856ccf730f8d19d4c8d35c592585d40bc2d14d82",
-        "references/install.md": "sha256:2b444bfcd211fae59421631ecd49331b4de287c311354f8ed3ca19f204d223db",
+        "references/install.md": "sha256:e59b9b1169fb72f063249f56b5fc7dee46bd3f9b9d2fe6d7d73b3319e14ff165",
         "references/log.md": "sha256:406e85525f53f4deaa0f48bf8b3b53db3e032b99f5a0e926c84542d51b3a3625",
         "references/status.md": "sha256:0143c8250ecbedfa14607b82cbfb23107294b6c1e053b5726629556b7a47412c",
-        "references/sync.md": "sha256:75577dce829fda6050b3b761915b70d9aef0d6bdb3c010d2fef7b7b22e226a8e",
+        "references/sync.md": "sha256:00877a4a9c1ca0c02a8601aad694cadce61c3facbe57603d36c0ef937028f658",
         "references/targets.md": "sha256:130b0b07b17a88d4bc09af0262a6b161421946f5442295dc5bc828f95226763e",
         "references/trash.md": "sha256:fb94aa6b71d469fa8f6b5e728fcab531b6eb010a2092389b02eaaadf3ebc98cf",
         "scripts/run.sh": "sha256:e434ebdb7d3ae0b37c00ddc36687bc975da9e766b8cb863f9aed9a624ebbdfa9"

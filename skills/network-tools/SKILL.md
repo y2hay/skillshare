@@ -1,5 +1,6 @@
 ---
 name: network-tools
+triggers: ["network tools", "network diagnostics", "port scan", "tcpdump", "ping", "traceroute"]
 description: Linux network tools and diagnostics
 version: 1.0.0
 author: terminal-skills

@@ -2,20 +2,12 @@
 name: skillshare
 description: |
   Manages and syncs AI CLI skills and agents across 50+ tools from a single source.
-  Use this skill whenever the user mentions "skillshare", runs skillshare commands,
-  manages skills or agents (install, update, uninstall, sync, commit, audit, analyze, check, diff, search),
-  or troubleshoots skill/agent configuration (orphaned symlinks, broken targets, sync
-  issues). Covers both global (~/.config/skillshare/) and project (.skillshare/)
-  modes. Also use when: adding new AI tool targets (Claude, Cursor, Windsurf, etc.),
-  setting target include/exclude filters or copy vs symlink mode, using backup/restore
-  or trash recovery, piping skillshare output to scripts (--json), setting up CI/CD
-  audit pipelines, building/sharing skill hubs (hub index, hub add), or working with
-  agents (single .md files synced to agent-capable targets like Claude, Cursor,
-  Augment, OpenCode) via positional `agents` filter or `--kind agent`, plus
-  `.agentignore` and `enable`/`disable` for per-agent toggles.
+  Use when managing skills/agents (install, update, uninstall, sync, commit, audit,
+  analyze, check, diff, search) or troubleshooting skill/agent configuration.
+  Covers both global (~/.config/skillshare/) and project (.skillshare/) modes.
 argument-hint: "[command] [target] [--json] [--dry-run] [-p|-g]"
 metadata:
-  version: v0.20.21
+  version: v0.20.22
 ---
 
 # Skillshare CLI
@@ -170,8 +162,8 @@ skillshare sync --json                         # Sync results as JSON
 skillshare diff --json                         # Diff results as JSON
 skillshare install user/repo --json            # Install result as JSON (implies --force --all)
 skillshare update --all --json                 # Update results as JSON
-skillshare uninstall my-skill --json           # Uninstall result as JSON (implies --force)
-skillshare collect claude --json               # Collect result as JSON (implies --force)
+skillshare uninstall my-skill --json           # Global JSON; dirty tracked repos still require --force
+skillshare collect claude --json               # Collect result as JSON; existing items still require --force
 skillshare target list --json                  # Target list as JSON
 skillshare list --json                         # Skill list as JSON
 skillshare search react --json                 # Search results as JSON

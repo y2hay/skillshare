@@ -1,5 +1,6 @@
 ---
 name: tailscale
+triggers: ["tailscale", "VPN", "Tailscale Serve", "Tailscale Funnel", "tailnet", "ts.net"]
 description: "Tailscale VPN sharing, Serve, and Funnel for remote access"
 emoji: "🔗"
 gates:

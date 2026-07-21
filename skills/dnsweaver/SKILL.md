@@ -1,5 +1,6 @@
 ---
 name: dnsweaver
+triggers: ["dnsweaver", "DNS record", "DNS provider", "hostname source", "dnsweaver provider", "dnsweaver source"]
 description: This skill should be used when the user asks to "work on dnsweaver", "modify dnsweaver", "add a dnsweaver provider", "add a dnsweaver source", "debug dnsweaver config", "deploy dnsweaver", "update dnsweaver docs", or mentions the local ~/repos/dnsweaver project. Provides repository-specific architecture, workflows, extension patterns, and operational guidance for dnsweaver.
 version: 0.1.0
 ---
