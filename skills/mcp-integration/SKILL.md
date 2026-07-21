@@ -1,0 +1,427 @@
+---
+
+name: mcp-integration
+description: |
+  Use when adding, configuring, or troubleshooting MCP servers; triggers include "add MCP server", "configure MCP", "integrate MCP", ".mcp.json", and "Model Context Protocol".
+version: 0.1.0
+
+---
+
+## Objective
+
+Provide comprehensive guidance for integrating Model Context Protocol (MCP) servers into Claude Code plugins to expose external service capabilities as tools.
+
+## Quick Start
+
+Configure MCP servers in `.mcp.json` or `plugin.json`. Use `${CLAUDE_PLUGIN_ROOT}` for portable paths. Reference tools as `mcp__plugin_NAME_SERVER__TOOL`.
+
+## Success Criteria
+
+- MCP server appears in `/mcp` output with correct tools
+- Authentication (OAuth or tokens) works correctly
+- Tools are successfully invoked from commands or agents
+- Portable paths using ${CLAUDE_PLUGIN_ROOT} are used
+
+## How It Works
+
+### Configuration Methods
+
+Plugins can bundle MCP servers in two ways:
+
+**Method 1: Dedicated .mcp.json (Recommended)**
+Create `.mcp.json` at plugin root with server definitions.
+
+**Method 2: Inline in plugin.json**
+Add `mcpServers` field to `plugin.json`.
+
+### Server Types
+
+- **stdio**: Local processes (npx, python, custom scripts). Communicates via stdin/stdout.
+- **SSE**: Hosted services (Asana, GitHub). Supports automatic OAuth.
+- **HTTP**: REST APIs with token/header authentication.
+- **WebSocket**: Real-time bidirectional streaming.
+
+### Environment Variables
+
+- `${CLAUDE_PLUGIN_ROOT}`: Plugin directory (always use for portability).
+- `${ENV_VAR}`: Expansion of user environment variables.
+
+## Tool Naming
+
+**Format:** `mcp__plugin_PLUGIN-NAME_SERVER-NAME__TOOL-NAME`
+
+Pre-allow specific tools in command frontmatter:
+```markdown
+---
+allowed-tools: ["mcp__plugin_asana_asana__asana_create_task"]
+---
+```
+
+## Process
+
+### Implementation Workflow
+
+1. Choose MCP server type (stdio, SSE, HTTP, ws)
+2. Create `.mcp.json` at plugin root with configuration
+3. Use `${CLAUDE_PLUGIN_ROOT}` for all file references
+4. Document required environment variables in README
+5. Test locally with `/mcp` command
+6. Pre-allow MCP tools in relevant commands
+7. Handle authentication and error cases
+
+## Resources
+
+### Reference Index
+
+- **references/server-types.md**: Deep dive on stdio, SSE, HTTP, and WS
+- **references/authentication.md**: OAuth, tokens, and custom headers
+- **references/tool-usage.md**: Using MCP tools in commands and agents
+- **references/security-and-errors.md**: Best practices and error patterns
+- **references/testing-and-debugging.md**: Local testing and `/mcp` usage
+
+### Examples Index
+
+- **examples/stdio-server.json**: Local process example
+- **examples/sse-server.json**: Cloud service with OAuth
+- **examples/http-server.json**: REST API with tokens
+
+**Wildcard (use sparingly):**
+```markdown
+---
+allowed-tools: ["mcp__plugin_asana_asana__*"]
+---
+```
+
+**Best practice:** Pre-allow specific tools, not wildcards, for security.
+
+## Lifecycle Management
+
+**Automatic startup:**
+- MCP servers start when plugin enables
+- Connection established before first tool use
+- Restart required for configuration changes
+
+**Lifecycle:**
+1. Plugin loads
+2. MCP configuration parsed
+3. Server process started (stdio) or connection established (SSE/HTTP/WS)
+4. Tools discovered and registered
+5. Tools available as `mcp__plugin_...__...`
+
+**Viewing servers:**
+Use `/mcp` command to see all servers including plugin-provided ones.
+
+## Authentication Patterns
+
+### OAuth (SSE/HTTP)
+
+OAuth handled automatically by Claude Code:
+
+```json
+{
+  "type": "sse",
+  "url": "https://mcp.example.com/sse"
+}
+```
+
+User authenticates in browser on first use. No additional configuration needed.
+
+### Token-Based (Headers)
+
+Static or environment variable tokens:
+
+```json
+{
+  "type": "http",
+  "url": "https://api.example.com",
+  "headers": {
+    "Authorization": "Bearer ${API_TOKEN}"
+  }
+}
+```
+
+Document required environment variables in README.
+
+### Environment Variables (stdio)
+
+Pass configuration to MCP server:
+
+```json
+{
+  "command": "python",
+  "args": ["-m", "my_mcp_server"],
+  "env": {
+    "DATABASE_URL": "${DB_URL}",
+    "API_KEY": "${API_KEY}",
+    "LOG_LEVEL": "info"
+  }
+}
+```
+
+## Integration Patterns
+
+### Pattern 1: Simple Tool Wrapper
+
+Commands use MCP tools with user interaction:
+
+```markdown
+# Command: create-item.md
+---
+allowed-tools: ["mcp__plugin_name_server__create_item"]
+---
+
+Steps:
+1. Gather item details from user
+2. Use mcp__plugin_name_server__create_item
+3. Confirm creation
+```
+
+**Use for:** Adding validation or preprocessing before MCP calls.
+
+### Pattern 2: Autonomous Agent
+
+Agents use MCP tools autonomously:
+
+```markdown
+# Agent: data-analyzer.md
+
+Analysis Process:
+1. Query data via mcp__plugin_db_server__query
+2. Process and analyze results
+3. Generate insights report
+```
+
+**Use for:** Multi-step MCP workflows without user interaction.
+
+### Pattern 3: Multi-Server Plugin
+
+Integrate multiple MCP servers:
+
+```json
+{
+  "github": {
+    "type": "sse",
+    "url": "https://mcp.github.com/sse"
+  },
+  "jira": {
+    "type": "sse",
+    "url": "https://mcp.jira.com/sse"
+  }
+}
+```
+
+**Use for:** Workflows spanning multiple services.
+
+## Security Best Practices
+
+### Use HTTPS/WSS
+
+Always use secure connections:
+
+```json
+✅ "url": "https://mcp.example.com/sse"
+❌ "url": "http://mcp.example.com/sse"
+```
+
+### Token Management
+
+**DO:**
+- ✅ Use environment variables for tokens
+- ✅ Document required env vars in README
+- ✅ Let OAuth flow handle authentication
+
+**DON'T:**
+- ❌ Hardcode tokens in configuration
+- ❌ Commit tokens to git
+- ❌ Share tokens in documentation
+
+### Permission Scoping
+
+Pre-allow only necessary MCP tools:
+
+```markdown
+✅ allowed-tools: [
+  "mcp__plugin_api_server__read_data",
+  "mcp__plugin_api_server__create_item"
+]
+
+❌ allowed-tools: ["mcp__plugin_api_server__*"]
+```
+
+## Error Handling
+
+### Connection Failures
+
+Handle MCP server unavailability:
+- Provide fallback behavior in commands
+- Inform user of connection issues
+- Check server URL and configuration
+
+### Tool Call Errors
+
+Handle failed MCP operations:
+- Validate inputs before calling MCP tools
+- Provide clear error messages
+- Check rate limiting and quotas
+
+### Configuration Errors
+
+Validate MCP configuration:
+- Test server connectivity during development
+- Validate JSON syntax
+- Check required environment variables
+
+## Performance Considerations
+
+### Lazy Loading
+
+MCP servers connect on-demand:
+- Not all servers connect at startup
+- First tool use triggers connection
+- Connection pooling managed automatically
+
+### Batching
+
+Batch similar requests when possible:
+
+```
+# Good: Single query with filters
+tasks = search_tasks(project="X", assignee="me", limit=50)
+
+# Avoid: Many individual queries
+for id in task_ids:
+    task = get_task(id)
+```
+
+## Testing MCP Integration
+
+### Local Testing
+
+1. Configure MCP server in `.mcp.json`
+2. Install plugin locally (`.claude-plugin/`)
+3. Run `/mcp` to verify server appears
+4. Test tool calls in commands
+5. Check `claude --debug` logs for connection issues
+
+### Validation Checklist
+
+- [ ] MCP configuration is valid JSON
+- [ ] Server URL is correct and accessible
+- [ ] Required environment variables documented
+- [ ] Tools appear in `/mcp` output
+- [ ] Authentication works (OAuth or tokens)
+- [ ] Tool calls succeed from commands
+- [ ] Error cases handled gracefully
+
+## Debugging
+
+### Enable Debug Logging
+
+```bash
+claude --debug
+```
+
+Look for:
+- MCP server connection attempts
+- Tool discovery logs
+- Authentication flows
+- Tool call errors
+
+### Common Issues
+
+**Server not connecting:**
+- Check URL is correct
+- Verify server is running (stdio)
+- Check network connectivity
+- Review authentication configuration
+
+**Tools not available:**
+- Verify server connected successfully
+- Check tool names match exactly
+- Run `/mcp` to see available tools
+- Restart Claude Code after config changes
+
+**Authentication failing:**
+- Clear cached auth tokens
+- Re-authenticate
+- Check token scopes and permissions
+- Verify environment variables set
+
+## Quick Reference
+
+### MCP Server Types
+
+| Type | Transport | Best For | Auth |
+|------|-----------|----------|------|
+| stdio | Process | Local tools, custom servers | Env vars |
+| SSE | HTTP | Hosted services, cloud APIs | OAuth |
+| HTTP | REST | API backends, token auth | Tokens |
+| ws | WebSocket | Real-time, streaming | Tokens |
+
+### Configuration Checklist
+
+- [ ] Server type specified (stdio/SSE/HTTP/ws)
+- [ ] Type-specific fields complete (command or url)
+- [ ] Authentication configured
+- [ ] Environment variables documented
+- [ ] HTTPS/WSS used (not HTTP/WS)
+- [ ] ${CLAUDE_PLUGIN_ROOT} used for paths
+
+### Best Practices
+
+**DO:**
+- ✅ Use ${CLAUDE_PLUGIN_ROOT} for portable paths
+- ✅ Document required environment variables
+- ✅ Use secure connections (HTTPS/WSS)
+- ✅ Pre-allow specific MCP tools in commands
+- ✅ Test MCP integration before publishing
+- ✅ Handle connection and tool errors gracefully
+
+**DON'T:**
+- ❌ Hardcode absolute paths
+- ❌ Commit credentials to git
+- ❌ Use HTTP instead of HTTPS
+- ❌ Pre-allow all tools with wildcards
+- ❌ Skip error handling
+- ❌ Forget to document setup
+
+## Additional Resources
+
+### Reference Files
+
+For detailed information, consult:
+
+- **`references/server-types.md`** - Deep dive on each server type
+- **`references/authentication.md`** - Authentication patterns and OAuth
+- **`references/tool-usage.md`** - Using MCP tools in commands and agents
+
+### Example Configurations
+
+Working examples in `examples/`:
+
+- **`stdio-server.json`** - Local stdio MCP server
+- **`sse-server.json`** - Hosted SSE server with OAuth
+- **`http-server.json`** - REST API with token auth
+
+### External Resources
+
+- **Official MCP Docs**: https://modelcontextprotocol.io/
+- **Claude Code MCP Docs**: https://docs.claude.com/en/docs/claude-code/mcp
+- **MCP SDK**: @modelcontextprotocol/sdk
+- **Testing**: Use `claude --debug` and `/mcp` command
+
+## Implementation Workflow
+
+To add MCP integration to a plugin:
+
+1. Choose MCP server type (stdio, SSE, HTTP, ws)
+2. Create `.mcp.json` at plugin root with configuration
+3. Use ${CLAUDE_PLUGIN_ROOT} for all file references
+4. Document required environment variables in README
+5. Test locally with `/mcp` command
+6. Pre-allow MCP tools in relevant commands
+7. Handle authentication (OAuth or tokens)
+8. Test error cases (connection failures, auth errors)
+9. Document MCP integration in plugin README
+
+Focus on stdio for custom/local servers, SSE for hosted services with OAuth.

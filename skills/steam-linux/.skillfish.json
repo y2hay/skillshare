@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "steam-linux",
+  "owner": "fx",
+  "repo": "cc",
+  "path": "plugins/steam/skills/steam-linux",
+  "branch": "main",
+  "sha": "742f37e9ed0f3def4084f790254a1d4ec920ccba",
+  "source": "manual"
+}

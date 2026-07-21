@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 # BEGIN SKILLSHARE MANAGED - DO NOT EDIT
 _skillshare/
 # END SKILLSHARE MANAGED
+=======
+.DS_Store
+config.yaml
+>>>>>>> origin/trunk

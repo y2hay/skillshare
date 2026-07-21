@@ -1,0 +1,39 @@
+# Device Profile Template
+# Copy this file to devices/<category>/<device-name>.yaml
+
+device:
+  name: "Device Name"           # Human-readable name
+  type: tv                      # router | tv | ir-remote | speaker | camera | ac | iot
+  vendor: "Brand"               # Manufacturer
+  protocol: http                # ssap | http | https | udp | broadlink | adb | ssh | mqtt | cast
+
+# Optional: for devices that don't sit on the network themselves
+# (e.g. an IR AC bridged through a BroadLink blaster). The key names
+# another profile in devices/ whose IP this profile should use.
+#
+# bridge: broadlink-rm4
+
+discovery:
+  mac_prefixes:                 # First 3 bytes of MAC address (find at macaddress.io)
+    - "aa:bb:cc"
+  hostname_patterns:            # Regex patterns for DHCP hostname
+    - "(?i)device-name"
+  mdns_services:                # Optional: mDNS service types
+    - "_http._tcp"
+
+connection:
+  method: http                  # http | websocket | udp | ssh | adb
+  port: 8080                    # Default port
+  auth:                         # Optional
+    type: none                  # none | token | password | pairing
+
+commands:
+  power_off:
+    description: "Power off"
+    action: "POST /api/power/off"
+  power_on:
+    description: "Power on"
+    action: "WOL"               # Wake-on-LAN (needs MAC)
+
+notes: |
+  Any gotchas, known issues, or tips for this device.
