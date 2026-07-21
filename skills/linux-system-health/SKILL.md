@@ -1,7 +1,7 @@
 ---
 name: linux-system-health
 triggers: ["system health", "slow server", "OOM kill", "disk full", "high CPU", "DNS failure", "connection timeout", "port exhaustion"]
-description: Diagnose Linux OS-level issues — slow server, OOM kills, disk full, high CPU/load, DNS failures, connection timeouts, port exhaustion, too many open files, zombie processes, browser automation failures, locale problems, and kernel misconfigurations.
+description: Use when diagnosing Linux OS-level issues — slow server, OOM kills, disk full, high CPU/load, DNS failures, connection timeouts, port exhaustion, too many open files, zombie processes, browser automation failures, locale problems, and kernel misconfigurations.
 version: 1.3.0
 tags:
   - linux

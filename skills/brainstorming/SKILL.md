@@ -1,7 +1,7 @@
 ---
 name: brainstorming
 triggers: ["brainstorm", "design ideas", "creative work", "feature planning", "requirements gathering"]
-description: "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
+description: Use when starting any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.
 ---
 
 # Brainstorming Ideas Into Designs

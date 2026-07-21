@@ -1,7 +1,7 @@
 ---
 name: tailscale
 triggers: ["tailscale", "VPN", "Tailscale Serve", "Tailscale Funnel", "tailnet", "ts.net"]
-description: "Tailscale VPN sharing, Serve, and Funnel for remote access"
+description: Use when sharing local services via Tailscale Serve (private) or Funnel (public internet). Covers VPN sharing, remote access, tailnet service exposure, and file transfer.
 emoji: "🔗"
 gates:
   envs:
